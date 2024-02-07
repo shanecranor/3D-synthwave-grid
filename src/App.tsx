@@ -8,9 +8,11 @@ import {
   // Scanline,
   Vignette,
 } from "@react-three/postprocessing";
+import * as THREE from "three";
 import { BlendFunction } from "postprocessing";
 import "./App.scss";
 import { SynthwaveGrid } from "./components/3D/SynthwaveGrid";
+import { Cloud, Clouds, GradientTexture, Stars } from "@react-three/drei";
 
 function App() {
   const p = 1;
@@ -62,7 +64,54 @@ function App() {
             opacity={0.1} // scanline opacity
           /> */}
           </EffectComposer>
+
+          <Clouds material={THREE.MeshBasicMaterial}>
+            <Cloud
+              segments={80}
+              bounds={[20, 1, 1]}
+              growth={10}
+              position={[-40, 0, -60]}
+              volume={10}
+              color={[0.23, 0, 0.23]}
+              speed={0.01}
+              opacity={0.1}
+            />
+            <Cloud
+              segments={80}
+              bounds={[20, 1, 1]}
+              growth={10}
+              position={[40, 0, -60]}
+              volume={10}
+              color={[0, 20 / 255, 48 / 255]}
+              speed={0.01}
+              opacity={0.1}
+            />
+          </Clouds>
           <SynthwaveGrid color={[15 * p, 2 * p, 20 * p]} />
+          {/* <Stars
+            radius={100}
+            depth={50}
+            count={10000}
+            factor={2}
+            saturation={0}
+            speed={1}
+          /> */}
+          <mesh scale={25} position={[0, 0, -1]} rotation={[0, 0, Math.PI / 2]}>
+            <planeGeometry />
+            <meshBasicMaterial
+              blending={THREE.AdditiveBlending}
+              opacity={2}
+              reflectivity
+              depthTest={false}
+              depthWrite={false}
+            >
+              <GradientTexture
+                stops={[0, 1]} // As many stops as you want
+                colors={["#3d003d", "#001430"]} // Colors need to match the number of stops
+                size={1024} // Size is optional, default = 1024
+              />
+            </meshBasicMaterial>
+          </mesh>
         </Canvas>
       </div>
     </>

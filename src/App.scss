@@ -1,13 +1,42 @@
+@font-face {
+  font-family: "Astro Armada";
+  src: url("_astroarmada.ttf");
+}
+
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  h1 {
-    font-size: 7vw;
-    line-height: 0;
-    transition: all 0.3s ease;
+  > h1 {
+    margin: unset;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Astro Armada";
+    font-weight: 400;
+    font-size: 13vw;
+    filter: drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
+    color: White;
+    z-index: 1;
+    text-align: center;
+    /*text-shadow: 0px 0px 100px white;*/
+    background-image: linear-gradient(
+      blue 10%,
+      white 50%,
+      rgba(30, 0, 30, 1) 51%,
+      magenta 70%,
+      white 90%
+    );
+    background-clip: text;
+    // text-fill-color: transparent;
+    // -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+    paint-order: stroke fill;
   }
   nav {
     display: flex;
