@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Canvas, useThree } from "@react-three/fiber";
 import {
   Bloom,
+  BrightnessContrast,
   EffectComposer,
-  // Noise,
-  // Scanline,
+  Noise,
+  Scanline,
   Vignette,
 } from "@react-three/postprocessing";
 import * as THREE from "three";
@@ -13,9 +14,34 @@ import { BlendFunction } from "postprocessing";
 import "./App.scss";
 import { SynthwaveGrid } from "./components/3D/SynthwaveGrid";
 import { Cloud, Clouds, GradientTexture, Stars } from "@react-three/drei";
+import { Background } from "./components/3D/Background";
 
 function App() {
   const p = 1;
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+    ratio: window.innerWidth / window.innerHeight,
+  });
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        ratio: window.innerWidth / window.innerHeight,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  class GlowMaterial extends THREE.MeshBasicMaterial {
+    constructor() {
+      super();
+      // Set custom properties
+      this.blending = THREE.AdditiveBlending;
+      // ... other customizations
+    }
+  }
   return (
     <>
       <main>
@@ -29,28 +55,37 @@ function App() {
       <div className="three-js-canvas">
         <Canvas>
           <SetCameraPosition />
+          <Background windowDimensions={windowDimensions} />
+          <Stars
+            radius={50}
+            depth={500}
+            count={2000}
+            factor={5}
+            saturation={1}
+            speed={1}
+          />
           <ambientLight intensity={2.0} />
           {/* <ambientLight intensity={1.0} /> */}
           <EffectComposer>
             <Bloom
-              luminanceThreshold={0}
-              luminanceSmoothing={0}
-              intensity={0.4}
-              levels={6}
-              radius={0.7}
+              luminanceThreshold={2}
+              luminanceSmoothing={2}
+              intensity={0.6}
+              levels={4}
+              radius={0.4}
               mipmapBlur={true}
-              opacity={1.0}
+              opacity={0.2}
             />
             <Bloom
               luminanceThreshold={0}
               luminanceSmoothing={0}
-              intensity={0.4}
+              intensity={0.3}
               levels={9}
-              radius={0.3}
+              radius={0.6}
               mipmapBlur={true}
               opacity={1}
             />
-            {/* <Noise opacity={0.1} /> */}
+            <Noise opacity={0.01} />
 
             <Vignette
               offset={0.4} // vignette offset
@@ -59,59 +94,121 @@ function App() {
               blendFunction={BlendFunction.DARKEN} // blend mode
             />
             {/* <Scanline
-            blendFunction={BlendFunction.NORMAL} // blend mode
-            density={1.6} // scanline density
-            opacity={0.1} // scanline opacity
-          /> */}
+              blendFunction={BlendFunction.NORMAL} // blend mode
+              density={1.6} // scanline density
+              opacity={0.1} // scanline opacity
+            /> */}
+            <BrightnessContrast brightness={0} contrast={0.1} />
           </EffectComposer>
-
-          <Clouds material={THREE.MeshBasicMaterial}>
+          {/* <Clouds texture="stars-tiled-2-min.png" material={GlowMaterial}>
             <Cloud
-              segments={80}
-              bounds={[20, 1, 1]}
-              growth={10}
-              position={[-40, 0, -60]}
-              volume={10}
-              color={[0.23, 0, 0.23]}
+              seed={19292}
+              segments={200}
+              concentrate="random"
+              bounds={[
+                80 * windowDimensions.ratio,
+                30 * windowDimensions.ratio,
+                0,
+              ]}
+              growth={0}
+              position={[0 * windowDimensions.ratio, 40, -80]}
+              volume={10 * windowDimensions.ratio}
+              // scale={1}
+              color={[0.5, 0.5, 0.5]}
               speed={0.01}
-              opacity={0.1}
+              opacity={1}
+            />
+          </Clouds> */}
+          <Clouds limit={300} material={GlowMaterial}>
+            <Cloud
+              seed={129}
+              segments={50}
+              bounds={[
+                50 * windowDimensions.ratio,
+                3 * windowDimensions.ratio,
+                10,
+              ]}
+              growth={2}
+              position={[-40 * windowDimensions.ratio, 0, -80]}
+              volume={40 * (windowDimensions.ratio * 1.3)}
+              color={[1400, 100, 1400]}
+              speed={0.1}
+              opacity={0.00001}
             />
             <Cloud
-              segments={80}
-              bounds={[20, 1, 1]}
-              growth={10}
-              position={[40, 0, -60]}
-              volume={10}
-              color={[0, 20 / 255, 48 / 255]}
+              seed={9189}
+              segments={50}
+              bounds={[
+                50 * windowDimensions.ratio,
+                3 * windowDimensions.ratio,
+                10,
+              ]}
+              growth={2}
+              position={[40 * windowDimensions.ratio, 0, -80]}
+              volume={40 * (windowDimensions.ratio * 1.3)}
+              color={[100, 500, 1400]}
+              speed={0.1}
+              opacity={0.00001}
+            />
+            {/* adds texture to the sky */}
+            <Cloud
+              seed={169}
+              segments={60}
+              bounds={[80 * windowDimensions.ratio, 30, 9]}
+              growth={2}
+              position={[40 * windowDimensions.ratio, 40, -50]}
+              volume={100}
+              color={[50 / 4, 100 / 4, 400 / 4]}
               speed={0.01}
-              opacity={0.1}
+              opacity={0.0001}
+            />
+            <Cloud
+              seed={169}
+              segments={60}
+              bounds={[80 * windowDimensions.ratio, 30, 9]}
+              growth={2}
+              position={[-40 * windowDimensions.ratio, 40, -50]}
+              volume={100}
+              color={[100 / 4, 0, 100 / 4]}
+              speed={0.01}
+              opacity={0.0001}
             />
           </Clouds>
-          <SynthwaveGrid color={[15 * p, 2 * p, 20 * p]} />
-          {/* <Stars
-            radius={100}
-            depth={50}
-            count={10000}
-            factor={2}
-            saturation={0}
-            speed={1}
-          /> */}
-          <mesh scale={25} position={[0, 0, -1]} rotation={[0, 0, Math.PI / 2]}>
+          {/* BLACK PHYSICAL GROUND */}
+          <mesh
+            scale={250}
+            position={[0, -1.2, -50]}
+            rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+          >
+            <planeGeometry />
+            <meshBasicMaterial blending={THREE.NoBlending} color={[0, 0, 0]} />
+          </mesh>
+
+          <mesh
+            scale={[90, 200 * windowDimensions.ratio, 1]}
+            position={[0, -46, -100]}
+            rotation={[0, 0, Math.PI / 2]}
+          >
             <planeGeometry />
             <meshBasicMaterial
-              blending={THREE.AdditiveBlending}
-              opacity={2}
-              reflectivity
+              // blending={THREE.NormalBlending}
+              color={[5, 5, 5]}
               depthTest={false}
               depthWrite={false}
             >
               <GradientTexture
                 stops={[0, 1]} // As many stops as you want
-                colors={["#3d003d", "#001430"]} // Colors need to match the number of stops
+                colors={["#4d003d", "#002440"]} // Colors need to match the number of stops
                 size={1024} // Size is optional, default = 1024
               />
             </meshBasicMaterial>
           </mesh>
+
+          <SynthwaveGrid
+            color={[15, 2, 20]}
+            endColor={[0, 10, 10]}
+            position={[0, -1.2, -40]}
+          />
         </Canvas>
       </div>
     </>
