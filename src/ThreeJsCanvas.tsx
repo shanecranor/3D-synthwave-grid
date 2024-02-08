@@ -172,7 +172,7 @@ export const ThreeJsCanvas = () => {
         <planeGeometry />
         <meshBasicMaterial
           // blending={THREE.NormalBlending}
-          color={[5, 5, 5]}
+          color={[3, 2, 3]}
           depthTest={false}
           depthWrite={false}
         >
