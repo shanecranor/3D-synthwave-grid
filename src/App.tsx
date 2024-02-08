@@ -15,9 +15,15 @@ import "./App.scss";
 import { SynthwaveGrid } from "./components/3D/SynthwaveGrid";
 import { Cloud, Clouds, GradientTexture, Stars } from "@react-three/drei";
 import { Background } from "./components/3D/Background";
-
+class GlowMaterial extends THREE.MeshBasicMaterial {
+  constructor() {
+    super();
+    // Set custom properties
+    this.blending = THREE.AdditiveBlending;
+    // ... other customizations
+  }
+}
 function App() {
-  const p = 1;
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -34,14 +40,7 @@ function App() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  class GlowMaterial extends THREE.MeshBasicMaterial {
-    constructor() {
-      super();
-      // Set custom properties
-      this.blending = THREE.AdditiveBlending;
-      // ... other customizations
-    }
-  }
+
   return (
     <>
       <main>
@@ -93,32 +92,15 @@ function App() {
               eskil={false} // Eskil's vignette technique
               blendFunction={BlendFunction.DARKEN} // blend mode
             />
-            {/* <Scanline
-              blendFunction={BlendFunction.NORMAL} // blend mode
-              density={1.6} // scanline density
-              opacity={0.1} // scanline opacity
-            /> */}
+
             <BrightnessContrast brightness={0} contrast={0.1} />
-          </EffectComposer>
-          {/* <Clouds texture="stars-tiled-2-min.png" material={GlowMaterial}>
-            <Cloud
-              seed={19292}
-              segments={200}
-              concentrate="random"
-              bounds={[
-                80 * windowDimensions.ratio,
-                30 * windowDimensions.ratio,
-                0,
-              ]}
-              growth={0}
-              position={[0 * windowDimensions.ratio, 40, -80]}
-              volume={10 * windowDimensions.ratio}
-              // scale={1}
-              color={[0.5, 0.5, 0.5]}
-              speed={0.01}
-              opacity={1}
+            <Scanline
+              // blendFunction={BlendFunction.NORMAL} // blend mode
+              density={1} // scanline density
+              opacity={0.1} // scanline opacity
+              scrollSpeed={0.01}
             />
-          </Clouds> */}
+          </EffectComposer>
           <Clouds limit={300} material={GlowMaterial}>
             <Cloud
               seed={129}
@@ -207,7 +189,7 @@ function App() {
           <SynthwaveGrid
             color={[15, 2, 20]}
             endColor={[0, 10, 10]}
-            position={[0, -1.2, -40]}
+            position={[0, -1.2, -80]}
           />
         </Canvas>
       </div>

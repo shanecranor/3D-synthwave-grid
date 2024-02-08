@@ -51,7 +51,10 @@ export function SynthwaveGrid({
       if (i % 2 === 0) {
         // Horizontal lines
         const modifiedColor = new THREE.Color(...color);
-        modifiedColor.lerp(new THREE.Color(...endColor), 1 - i / divisions);
+        modifiedColor.lerp(
+          new THREE.Color(...endColor),
+          1 - Math.pow(i / divisions, 1)
+        );
         linesArray.push(
           <mesh key={`h-${i}`} position={[0, 0, position]}>
             <boxGeometry args={[size * 2, thickness * 1, thickness]} />

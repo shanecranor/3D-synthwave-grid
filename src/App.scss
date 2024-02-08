@@ -9,6 +9,8 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
+  max-height: 100vh;
+  overflow: auto; /* Adds scroll inside main if content overflows */
   > h1 {
     margin: unset;
     display: block;
@@ -17,7 +19,8 @@ main {
     font-family: "Astro Armada";
     font-weight: 400;
     font-size: 13vw;
-    filter: drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
+    filter: url(#filterNoGlitch)
+      drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
     color: White;
     z-index: 1;
     text-align: center;
@@ -40,16 +43,19 @@ main {
   }
   nav {
     display: flex;
-    gap: 30px;
+    gap: 10vw;
     justify-content: center;
     align-items: center;
     a {
       text-decoration: none;
-      color: white;
-      font-size: 2vw;
-      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: max(3vw, 24px);
+      font-weight: 300;
+      filter: url(#filterNoGlitch)
+        drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
+
       &:hover {
-        color: #f00;
+        color: rgba(255, 255, 255, 1);
       }
     }
   }
