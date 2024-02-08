@@ -19,7 +19,6 @@ import {
   GradientTexture,
   Stars,
   Stats,
-  PerformanceMonitor,
 } from "@react-three/drei";
 import { Background } from "./components/3D/Background";
 class GlowMaterial extends THREE.MeshBasicMaterial {
