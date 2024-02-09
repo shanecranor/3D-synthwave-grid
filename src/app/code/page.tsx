@@ -4,6 +4,7 @@ import Section from "@/components/old-components/Section/Section";
 import FeaturedProject from "@/components/old-components/FeaturedProject/FeaturedProject";
 import LanguagesAndProjects from "@/components/old-components/LanguagesAndProjects/LanguagesAndProjects";
 import Link from "next/link";
+import "./page.scss";
 const Page = () => {
   return (
     <div>

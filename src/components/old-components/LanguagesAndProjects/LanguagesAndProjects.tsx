@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import "./LanguagesAndProjects.scss";
 import { categories, getLangsByCategory } from "@/data/languages";
@@ -38,7 +39,7 @@ export default function LanguagesAndProjects() {
           {/* <div className='category-name'> {c}: </div> */}
           {getLangsByCategory(selected).map((langObj) => (
             <span key={langObj.language} className="language">
-              <img src={langObj.img} />
+              <img src={langObj.img} alt="" />
               {langObj.language}
             </span>
           ))}

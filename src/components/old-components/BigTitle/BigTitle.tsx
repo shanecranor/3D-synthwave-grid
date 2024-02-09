@@ -1,12 +1,13 @@
 "use client";
 import "./BigTitle.scss";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import React, { CSSProperties } from "react";
 export default function BigTitle({ text }: { text: string }) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (event) => {
+  const handleMouseMove = (event: React.MouseEvent) => {
+    if (!(event.target instanceof HTMLElement)) return;
     setCoords({
-      x: event.clientX - event.target.offsetTop,
+      x: event.target.offsetTop,
       y: event.clientY - event.target.offsetTop,
     });
   };
@@ -17,7 +18,10 @@ export default function BigTitle({ text }: { text: string }) {
   };
   //console.log(style)
   return (
-    <header className="big-title-container" style={style}>
+    <header
+      className="big-title-container"
+      style={style as React.CSSProperties}
+    >
       <div onMouseMove={handleMouseMove} className="big-title" data-text={text}>
         {" "}
         {text}
