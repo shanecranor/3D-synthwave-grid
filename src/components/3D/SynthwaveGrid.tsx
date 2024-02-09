@@ -69,7 +69,7 @@ export function SynthwaveGrid({
     }
 
     return linesArray;
-  }, [size, divisions, thickness, color]);
+  }, [size, divisions, thickness, color, endColor, opacity]);
 
   return (
     <group ref={linesRef} position={position}>
