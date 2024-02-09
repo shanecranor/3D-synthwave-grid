@@ -11,7 +11,7 @@ import {
 } from "@react-three/postprocessing";
 import * as THREE from "three";
 import { BlendFunction } from "postprocessing";
-import { SynthwaveGrid } from "./components/3D/SynthwaveGrid";
+import { SynthwaveGrid } from "@/components/3D/SynthwaveGrid";
 import {
   Cloud,
   Clouds,
@@ -19,7 +19,7 @@ import {
   Stars,
   Stats,
 } from "@react-three/drei";
-import { Background } from "./components/3D/Background";
+import { Background } from "@/components/3D/Background";
 class GlowMaterial extends THREE.MeshBasicMaterial {
   constructor() {
     super();
