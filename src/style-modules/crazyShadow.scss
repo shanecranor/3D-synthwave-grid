@@ -1,0 +1,44 @@
+@use 'sass:math';
+@use 'sass:list';
+@mixin noCrazyShadow($num, $end-x, $end-y){
+    $shadows: 0px 0px 0px transparent;
+    @for $i from 1 through $num {
+        $x-pos: calc(math.pow($i/$num*$end-x,2)*math.abs($end-x) / $end-x);
+        $y-pos: calc(math.pow($i/$num*$end-y,2)*math.abs($end-y) / $end-y);
+        $shadows: #{$shadows},
+        #{$x-pos}px  #{$y-pos}px    //position
+        #{calc(($i/$num)*15)}px     //blur
+        rgba(black, calc((1 - math.pow($i/$num, 0.5))/2));
+    }
+    text-shadow: $shadows;
+}
+@mixin crazyRainbowShadow($num, $end-x, $end-y, $alpha: 0.9){
+    $shadows: 0px 0px 0px transparent;
+    @for $i from 1 through $num {
+        $x-pos: calc(math.pow($i/$num*$end-x,2)*math.abs($end-x) / $end-x);
+        $y-pos: calc(math.pow($i/$num*$end-y,2)*math.abs($end-y) / $end-y);
+        $shadows: #{$shadows}, 
+        #{$x-pos}px  #{$y-pos}px    //position
+        #{calc(($i/$num)*14)}px     //blur
+        rgba(
+            list.nth(cyan yellow magenta (0, 255, 0), $i % 3 + 1),  //color
+            calc((1 - math.pow($i/$num, $alpha))/1) //alpha
+        );
+    }
+    text-shadow: $shadows;
+}
+@mixin crazyShadow($num, $end-x, $end-y, $color, $alpha: 0.9){
+    $shadows: 0px 0px 0px transparent;
+    @for $i from 1 through $num {
+        $x-pos: calc(math.pow($i/$num*$end-x,2)*math.abs($end-x) / $end-x);
+        $y-pos: calc(math.pow($i/$num*$end-y,2)*math.abs($end-y) / $end-y);
+        $shadows: #{$shadows}, 
+        #{$x-pos}px  #{$y-pos}px    //position
+        #{calc(($i/$num)*14)}px     //blur
+        rgba(
+            $color,  //color
+            calc((1 - math.pow($i/$num, $alpha))/1) //alpha
+        );
+    }
+    text-shadow: $shadows;
+}

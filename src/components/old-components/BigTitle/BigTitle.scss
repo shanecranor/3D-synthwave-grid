@@ -1,0 +1,73 @@
+@mixin pseudostuff{
+    z-index: 10;
+    content: attr(data-text);
+    display: inline-block;
+    transform-origin: var(--title-origin-x) var(--title-origin-y);
+    transition: transform 0.5s, letter-spacing 0.5s, text-shadow 0.5s;
+    transform-style: preserve-3D;
+    letter-spacing: normal;
+    mix-blend-mode: screen;
+}
+@mixin RGBeffect{
+    color: rgb(255,0,0);
+    text-shadow: 0px 0px 20px rgba(red, 0.2);
+    @include pseudostuff();
+    &:before {
+        text-shadow: 0px 0px 20px rgba(0,255,0, 0.2);
+        color: rgb(0,255,0);
+        transform: translateX(103.7%);
+        @include pseudostuff()
+    }
+    &:after {
+        text-shadow: 0px 0px 20px rgba(blue, 0.2);
+        color: rgb(0,0,255);
+        transform: translateX(-100%) translateY(0);
+        @include pseudostuff()
+    }   
+    &:hover{
+        &:before {
+            transform: translateX(103.7%) rotateY(5deg) rotateX(-10deg) rotateZ(0.1deg);
+        }
+        &:after {
+            transform: translateX(-100%) rotateY(10deg) rotateX(-20deg) rotateZ(-0.1deg);
+        } 
+    }
+    &:active{
+        --glow-brightness: 0.5;
+        --glow-radius: 10px;
+        --glow-delay: 3.0s;
+        transition: transform 0.5s, letter-spacing 0.5s, text-shadow var(--glow-delay);
+        transform: rotateY(-10deg) rotateX(20deg);
+        letter-spacing: 15px;
+        text-shadow: 0px 0px var(--glow-radius) rgba(red, var(--glow-brightness));
+        &:before{
+            transition: transform 0.5s, letter-spacing 0.5s, text-shadow var(--glow-delay);
+            transform: translateX(103.7%) rotateY(-10deg) rotateX(20deg);
+            letter-spacing: 15px;
+            text-shadow: 0px 0px var(--glow-radius) rgba(0,255,0, var(--glow-brightness));
+        }
+        &:after {
+            transition: transform 0.5s, letter-spacing 0.5s, text-shadow var(--glow-delay);
+            transform: translateX(-100%) rotateY(-15deg) rotateX(25deg);
+            letter-spacing: 15px;
+            text-shadow: 0px 0px var(--glow-radius) rgba(blue, var(--glow-brightness));
+        }         
+    } 
+}
+
+.big-title-container{
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    > .big-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        padding-top: 30px;
+        padding-bottom: 30px;//5px;
+        font-size: 10vw;
+        @include RGBeffect;
+    }
+}

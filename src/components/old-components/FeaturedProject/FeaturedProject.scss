@@ -1,0 +1,23 @@
+.project{
+    transition: padding 0.4s, text-shadow 0.5s;
+    &:hover{
+        padding-right: 25px;
+        text-shadow: 10px 0px 20px rgba(white, 0.2);
+    }
+    text-align: right;
+    padding: 5vh 0px 5vh 0px;
+    //padding: 0px max(15vw, 20px) 0px max(15vw, 20px);
+    >header{
+        font-size: max(5vw, 55px);
+        //set smaller afte 600px window size
+        font-weight: 900;
+        line-height: max(5vw, 55px);
+    }
+    >.description{
+        font-family: 'Open Sans';
+        font-weight: 300;
+        font-size: 20px;
+        font-size: max(1.5vw, 20px);
+    }
+    padding-bottom: 50px;
+}
