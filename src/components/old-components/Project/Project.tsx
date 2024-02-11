@@ -1,5 +1,10 @@
+"use client";
 import { Project as ProjectType } from "@/data/projects";
 import { useState } from "react";
+import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
+import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
+import "./Project.scss";
+import { languagesMap } from "@/data/languages";
 export default function Project({
   data,
   onClick,
@@ -32,7 +37,14 @@ export default function Project({
   };
   return (
     <article className="project-container" onClick={onClick}>
-      <header className="project-title-container">
+      <div className="img-container">
+        {title.length % 2 ? (
+          <img src={SpinWheel.src} />
+        ) : (
+          <img src={MinesRocks.src} />
+        )}
+      </div>
+      <div className="project-contents">
         <h2
           className="project-title"
           style={style as React.CSSProperties}
@@ -41,12 +53,22 @@ export default function Project({
         >
           {title}
         </h2>
-      </header>
-      <div className="project-contents">
         <section className="project-tags">
-          Tags:
           {languages.map((lang) => (
-            <span key={`${lang}tag`} className="tag">
+            <span
+              key={`${lang}tag`}
+              className="tag"
+              style={
+                {
+                  "--tag-color": languagesMap.get(lang)?.color || "black",
+                } as React.CSSProperties
+              }
+            >
+              <img
+                src={`/assets/${languagesMap.get(lang)?.img}`}
+                alt=""
+                className="language-icon"
+              />
               {lang}
             </span>
           ))}

@@ -1,0 +1,162 @@
+@use "sass:math";
+
+@mixin pseudostuff {
+  padding: 0px;
+  margin: 0px;
+  z-index: 10;
+  content: attr(data-text);
+  //display: inline-block;
+  transform-origin: var(--title-origin-x) 50%;
+  transition: transform 0.5s, letter-spacing 0.5s, text-shadow 0.5s;
+  transform-style: preserve-3D;
+  letter-spacing: normal;
+  mix-blend-mode: screen;
+  text-align: center;
+  //width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin RGBeffect {
+  @include pseudostuff;
+  display: flex;
+  color: rgb(255, 0, 0);
+
+  &:before {
+    @include pseudostuff;
+    color: rgb(0, 255, 0);
+    position: absolute;
+  }
+
+  &:after {
+    color: rgb(0, 0, 255);
+    //transform: translateY(-200%);
+    @include pseudostuff;
+    position: absolute;
+  }
+
+  &:hover {
+    --hover-letter-spacing: 0px;
+    --text-glow-alpha: 0.3;
+    --text-glow-radius: 5px;
+    text-shadow: 0px 0px var(--text-glow-radius)
+      rgba(red, var(--text-glow-alpha));
+    letter-spacing: var(--hover-letter-spacing);
+
+    &:before {
+      text-shadow: 0px 0px var(--text-glow-radius)
+        rgba(0, 255, 0, var(--text-glow-alpha));
+      letter-spacing: var(--hover-letter-spacing);
+      transform: rotateY(-5deg) rotateX(20deg) rotateZ(0.1deg);
+    }
+
+    &:after {
+      text-shadow: 0px 0px var(--text-glow-radius)
+        rgba(blue, var(--text-glow-alpha));
+      letter-spacing: var(--hover-letter-spacing);
+      transform: rotateY(10deg) rotateX(-20deg) rotateZ(-0.1deg);
+    }
+  }
+}
+
+@mixin fakeRGBoff {
+  $alpha2: 0.5;
+  text-shadow: 0px 0px 0px rgba(yellow, $alpha2), 0px 0px 0px rgba(red, $alpha2),
+    0px 0px 0px rgba(cyan, $alpha2), 0px 0px 0px rgba(blue, $alpha2);
+}
+
+@mixin fakeRGBon($x1, $y1, $blur) {
+  $alpha2: 0.4;
+  text-shadow: calc($x1 * 0.5) calc($y1 * 0.5) $blur rgba(yellow, $alpha2),
+    $x1 $y1 $blur rgba(red, $alpha2),
+    calc($x1 * -0.5) calc($y1 * -0.5) $blur rgba(cyan, $alpha2),
+    calc($x1 * -1) calc($y1 * -1) $blur rgba(blue, $alpha2);
+}
+.project-container {
+  border: solid rgba(white, 0.2) 1px;
+  //outline: solid 2px white;
+  transition: height 1s ease, outline-offset 0.5s, outline-color 0.5s,
+    box-shadow 0.5s;
+  border-radius: 8px;
+
+  box-shadow: 0px 0px 15px 0px rgba(white, 0.04),
+    inset 0px 0px 300px 0px rgba(white, 0.07);
+
+  .img-container {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 365px;
+    border-bottom: 1px solid rgba(white, 0.2);
+    // border-radius: 8px;
+
+    img {
+      box-sizing: border-box;
+      //   border-radius: 8px;
+      width: 100%;
+      //   max-height: 365px;
+      object-fit: contain;
+    }
+  }
+  > .project-contents {
+    // background: red;
+    padding: 30px;
+
+    .project-title {
+      text-align: left;
+      font-weight: 500;
+      line-height: 2;
+      padding: 0px;
+      margin: 0px;
+      @include fakeRGBoff();
+      transition: text-shadow 1s;
+      --t-x-1: 1px;
+
+      &:hover {
+        transition: text-shadow 0s;
+        @include fakeRGBon(var(--t-x-1), var(--t-y-1), var(--t-b));
+      }
+    }
+    > .project-tags {
+      display: flex;
+      gap: 10px;
+      font-family: "Open Sans";
+      font-weight: 400;
+      align-items: center;
+
+      > .tag {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        filter: saturate(60%);
+        font-weight: 600;
+        background: color-mix(in srgb, var(--tag-color) 30%, rgba(white, 0));
+        color: color-mix(in srgb, var(--tag-color) 100%, rgba(white, 0));
+        padding: 4px 8px;
+        border-radius: 8px;
+        img {
+          height: 16px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    > .project-summary {
+      display: inline-block;
+      font-family: "Open Sans";
+      font-weight: 200;
+      white-space: pre-wrap;
+    }
+  }
+}
+// .project-title-container {
+//   //   border-bottom: 2px solid white;
+//   //   border-radius: 4%;
+//   //   box-shadow: 0px 10px 10px -10px rgba(white, 0.5),
+//   //     inset 0px -10px 10px -10px rgba(white, 0.3);
+//   //   display: flex;
+//   //   justify-content: center;
+//   //   alifgn-items: center;
+//   //   padding: 5px 10px 5px 10px;
+
+// }

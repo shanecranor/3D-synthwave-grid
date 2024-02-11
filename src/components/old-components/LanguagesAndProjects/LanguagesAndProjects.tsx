@@ -1,6 +1,5 @@
 "use client";
 import "./LanguagesAndProjects.scss";
-import { categories, getLangsByCategory } from "@/data/languages";
 import {
   getProjectsByLanguage,
   getProjectsByTag,
@@ -8,6 +7,7 @@ import {
 } from "@/data/projects";
 import React from "react";
 import Project from "@/components/old-components/Project/Project";
+import { languages } from "@/data/languages";
 // import Router, { useRouter } from "next/router";
 export default function LanguagesAndProjects() {
   // const { query } = useRouter();
@@ -24,7 +24,7 @@ export default function LanguagesAndProjects() {
       <section className="language-section">
         {/* <h1>Programming Languages & Libraries</h1> */}
         <div className="category-buttons">
-          {categories.map((c) => (
+          {/* {categories.map((c) => (
             <button
               key={c}
               className={selected === c ? "selected" : "not-selected"}
@@ -32,11 +32,11 @@ export default function LanguagesAndProjects() {
             >
               {c}
             </button>
-          ))}
+          ))} */}
         </div>
         <div className="category-container">
           {/* <div className='category-name'> {c}: </div> */}
-          {getLangsByCategory(selected).map((langObj) => (
+          {languages.map((langObj) => (
             <span key={langObj.language} className="language">
               <img src={langObj.img} alt="" />
               {langObj.language}

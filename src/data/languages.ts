@@ -1,154 +1,141 @@
 type Language = {
   language: string;
   img?: string;
-  categories: string[];
+  color?: string;
   fluency: number;
 };
 export const languages: Language[] = [
   {
     language: "JavaScript",
-    img: "languageIcons/Javascript.svg",
-    categories: ["Web Stack", "Application"],
+    img: "languageIcons/JavaScript.svg",
+    color: "#f7df1e",
     fluency: 90,
   },
   {
     language: "TypeScript",
     img: "languageIcons/TypeScript.svg",
-    categories: ["Web Stack"],
+    color: "#3178c6",
     fluency: 90,
   },
   {
     language: "NodeJS",
     img: "languageIcons/NodeJS.svg",
-    categories: ["Web Stack"],
+    color: "#68a063",
     fluency: 75,
   },
   {
     language: "NextJS",
     img: "languageIcons/NextJS.svg",
-    categories: ["Web Stack"],
+    color: "#000000",
     fluency: 70,
   },
   {
     language: "React",
     img: "languageIcons/React.svg",
-    categories: ["Web Stack"],
+    color: "#61dafb",
     fluency: 70,
   },
   {
     language: "PostgreSQL",
-    categories: ["Web Stack"],
+    color: "#336791",
     fluency: 80,
   },
   {
     language: "HTML",
-    categories: ["Web Stack"],
+    img: "languageIcons/HTML5.svg",
+    color: "#e34c26",
     fluency: 100,
   },
   {
     language: "CSS",
-    categories: ["Web Stack"],
+    img: "languageIcons/CSS.svg",
+    color: "#264de4",
     fluency: 90,
   },
   {
     language: "Bash Shell",
-    categories: ["Scripting & Automation"],
+    color: "#4eaa25",
     fluency: 80,
   },
   {
     language: "DOS Batch Script (BAT)",
-    categories: ["Scripting & Automation"],
+
     fluency: 60,
   },
   {
     language: "AutoHotKey",
-    categories: ["Scripting & Automation"],
     fluency: 50,
   },
   {
     language: "OpenCV",
-    categories: ["Machine Learning", "Graphics"],
     fluency: 80,
+    color: "#5c3ee8",
   },
   {
     language: "PixiJS",
-    categories: ["Graphics"],
     fluency: 80,
+    color: "#ff69b4",
   },
   {
     language: "ThreeJS",
-    categories: ["Graphics"],
     fluency: 45,
+    color: "#000000",
   },
   {
     language: "Embedded C / Arduino C",
-    categories: ["Hardware"],
+    img: "languageIcons/Arduino.svg",
     fluency: 70,
+    color: "#00979d",
   },
   {
     language: "P5JS",
-    categories: ["Graphics", "Education"],
     fluency: 80,
+    color: "#ed225d",
   },
 
   {
     language: "Java",
-    categories: ["Application"],
     fluency: 60,
+    color: "#007396",
   },
 
   {
     language: "C++",
-    categories: ["Application"],
     fluency: 70,
+    color: "#00599c",
   },
 
   {
     language: "Scratch",
-    categories: ["Visual Languages", "Education"],
     fluency: 100,
   },
   {
     language: "Python",
-    categories: ["Machine Learning", "Application"],
+    img: "languageIcons/Python.svg",
     fluency: 80,
+    color: "#3776ab",
   },
   {
     language: "Processing",
-    categories: ["Application", "Graphics", "Education"],
     fluency: 80,
   },
   {
     language: "Quartz Composer",
-    categories: ["Visual Languages", "Graphics", "Legacy"],
     fluency: 90,
   },
 
   {
     language: "Assembly (MIPS)",
-    categories: ["Hardware"],
     fluency: 70,
   },
   {
     language: "PHP",
-    categories: ["Legacy"],
     fluency: 69,
   },
 ];
 
-let languageCategories = new Set<string>();
-let allCategory: Language[] = [];
-languageCategories.add("All");
-for (const lang of languages) {
-  allCategory.push(lang);
-  for (const cat of lang.categories) {
-    languageCategories.add(cat);
-  }
-}
+export const languagesMap = new Map<string, Language>();
 
-export const categories = Array.from(languageCategories);
-
-export function getLangsByCategory(category: string) {
-  if (category === "All") return allCategory;
-  return languages.filter((language) => language.categories.includes(category));
-}
+languages.forEach((language) => {
+  languagesMap.set(language.language, language);
+});
