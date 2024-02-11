@@ -18,6 +18,12 @@ export const languages: Language[] = [
     fluency: 90,
   },
   {
+    language: "Cloudflare Workers",
+    img: "languageIcons/CloudflareWorkers.svg",
+    color: "#f38020",
+    fluency: 90,
+  },
+  {
     language: "NodeJS",
     img: "languageIcons/NodeJS.svg",
     color: "#68a063",

@@ -19,7 +19,7 @@ export const projects: Project[] = [
     tags: ["Web Stack"],
     languages: ["JavaScript", "TypeScript", "React"],
     summary:
-      "Building a cloudflare worker to interact with spotify servers and parse song data on the edge. Then displaying that data in an iframe overlay for viewers.",
+      "A full stack application that allows streamers to share their current spotify status without an OBS plugin by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
     description: `Over the summer of 2022 I worked with Truffle and built a little GUI and backend that enables streamers to share what they are listing to on spotify with their listeners without cluttering up their stream. Using some tech from the Truffle developer platform I can inject an iframe into the Youtube or Twitch page. I made the overlay draggable, by controlling the iframe styles and listening to mouse events on the iframe.`,
   },
   {
