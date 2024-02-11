@@ -1,4 +1,4 @@
-import "./FeaturedProject.scss";
+import styles from "./FeaturedProject.module.scss"
 export default function FeaturedProjects({
   title,
   description,
@@ -7,9 +7,9 @@ export default function FeaturedProjects({
   description: string;
 }) {
   return (
-    <article className="project">
-      <header>{title}</header>
-      <p className="description">{description}</p>
+    <article className={styles.project}>
+      <h2>{title}</h2>
+      <p className={styles.description}>{description}</p>
     </article>
   );
 }

@@ -1,6 +1,10 @@
 @import "@/style-modules/fonts.scss";
-
+html,
+body{
+  overflow: auto;
+}
 main {
+  overflow: unset;
   max-width: 1200px;
   margin: auto;
 }

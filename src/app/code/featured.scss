@@ -1,0 +1,33 @@
+.featured-container {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  max-width: 1024px;
+  margin: auto;
+  article {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    &.flip {
+      flex-direction: row-reverse;
+    }
+
+    > .text {
+      display: flex;
+      max-width: 440px;
+      flex-direction: column;
+      //center
+      justify-content: center;
+      > h3 {
+        margin: unset;
+        line-height: unset;
+        font-size: 40px;
+      }
+    }
+
+    img {
+      max-width: 500px;
+    }
+  }
+}

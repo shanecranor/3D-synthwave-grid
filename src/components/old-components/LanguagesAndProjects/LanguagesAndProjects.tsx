@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import "./LanguagesAndProjects.scss";
 import { categories, getLangsByCategory } from "@/data/languages";

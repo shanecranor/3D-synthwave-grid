@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/old-components/Navbar/Navbar";
 import BigTitle from "@/components/old-components/BigTitle/BigTitle";
 import Section from "@/components/old-components/Section/Section";
@@ -5,6 +6,7 @@ import FeaturedProject from "@/components/old-components/FeaturedProject/Feature
 import LanguagesAndProjects from "@/components/old-components/LanguagesAndProjects/LanguagesAndProjects";
 import Link from "next/link";
 import "./page.scss";
+import { Featured } from "./featured";
 const Page = () => {
   return (
     <div>
@@ -13,29 +15,7 @@ const Page = () => {
       </header>
       <main>
         <BigTitle text="Code Portfolio" />
-        {/* <About/> */}
-        <Section header="Featured Projects" startOpen={true}>
-          {/* <Link legacyBehavior href="./posts/spotify"> */}
-          <a style={{ all: "unset" }}>
-            <FeaturedProject
-              title="Truffle Spotify App"
-              description="Overlay that displays cached Spotify data from a Cloudlare worker"
-            />
-          </a>
-          {/* </Link> */}
-          {/* <Link legacyBehavior href="./posts/synth"> */}
-          <a style={{ all: "unset" }}>
-            <FeaturedProject
-              title="Math Synth Experiment"
-              description="Create a wall of sound by writing equations"
-            />
-          </a>
-          {/* </Link> */}
-          <FeaturedProject
-            title="Bubblz.Space"
-            description="A peer to peer video communication web app with a twist"
-          />
-        </Section>
+        <Featured />
         <Section header="All Projects" startOpen={true}>
           <LanguagesAndProjects />
         </Section>
