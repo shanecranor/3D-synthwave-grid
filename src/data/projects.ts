@@ -1,4 +1,6 @@
-import SpotifyProject from "@/public/assets/project-images/spotify-widget.png";
+import SpotifyProject from "@/public/assets/project-images/spotify-widget2.png";
+import DoorbellCam from "@/public/assets/project-images/doorbell-cam.jpg";
+import CharucoDraw from "@/public/assets/project-images/charuco-draw.png";
 import KaleidoScope from "@/public/assets/project-images/kaleidoscope.png";
 import Planets from "@/public/assets/project-images/planet.png";
 import Synth from "@/public/assets/project-images/synth.png";
@@ -116,7 +118,7 @@ export const projects: Project[] = [
     eventName: "CSCI437, Computer Vision",
     year: 2021,
     title: "ChArUco Draw",
-    // img: '',
+    img: CharucoDraw.src,
     tags: ["Machine Learning", "Graphics"],
     languages: ["Python"],
     summary:
@@ -127,7 +129,7 @@ export const projects: Project[] = [
     eventName: "CSCI250, Sensor Systems",
     year: 2021,
     title: "Raspberry Pi Door Camera",
-    // img: '',
+    img: DoorbellCam.src,
     tags: ["Web Stack", "Hardware"],
     languages: ["JavaScript", "HTML", "CSS", "Python"],
     summary: "A doorbell camera clone created with a Rapberry Pi",
@@ -198,11 +200,11 @@ export const projects: Project[] = [
     links: [
       {
         link: "https://docs.google.com/presentation/d/1s76drEdBIL2nWBRRvm437i2gE22_n4uiu6_yqZVG63I/edit?usp=sharing",
-        description: "Poster Board (Google Slides)",
+        description: "Poster",
       },
       {
         link: "https://docs.google.com/presentation/d/1Oo2V2g9wou79Sg-pdO02ykM4uOtl7vUhKkzTsef9Lno/edit?usp=sharing",
-        description: "Presentation (Google Slides)",
+        description: "Presentation",
       },
     ],
     img: "https://shane.cranor.org/code/imgs/scifi.jpg",
