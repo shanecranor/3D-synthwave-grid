@@ -1,5 +1,5 @@
 .placeholder-image {
-  transition: all 0.5s;
+  transition: all 0.5s, transform 10000s;
   width: 100%;
   height: 100%;
   filter: blur(100px);
@@ -11,17 +11,6 @@
     mix-blend-mode: exclusion;
   }
   &:hover {
-    //slow rotate animation
-    animation: rotate 10s linear infinite;
-  }
-}
-
-//slow rotate animatino
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    transform: rotate(360000deg);
   }
 }

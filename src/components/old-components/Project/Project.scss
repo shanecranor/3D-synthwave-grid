@@ -106,6 +106,24 @@
     padding: 30px;
 
     .project-title {
+      display: flex;
+      justify-content: space-between;
+      > .links {
+        display: flex;
+        gap: 10px;
+        > a {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+          img {
+            height: 20px;
+          }
+        }
+      }
       text-align: left;
       font-weight: 500;
       line-height: 2;
@@ -122,6 +140,8 @@
     }
     > .project-tags {
       display: flex;
+      flex-wrap: wrap;
+
       gap: 10px;
       font-family: "Open Sans";
       font-weight: 400;

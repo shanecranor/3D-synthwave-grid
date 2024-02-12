@@ -1,6 +1,6 @@
 "use client";
 import { Project as ProjectType } from "@/data/projects";
-import { useState } from "react";
+import React, { useState } from "react";
 import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
 import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
 import "./Project.scss";
@@ -52,27 +52,17 @@ export default function Project({
           onMouseMove={handleMouseMove}
           data-text={title}
         >
-          {title}
+          <div>{title}</div>
+          <div className="links">
+            {data.links?.map((link) => (
+              <a href={link.link} key={link.link}>
+                {link.img ? <img src={link.img} /> : link.description}{" "}
+              </a>
+            )) || ""}
+          </div>
         </h2>
         <section className="project-tags">
-          {languages.map((lang) => (
-            <span
-              key={`${lang}tag`}
-              className="tag"
-              style={
-                {
-                  "--tag-color": languagesMap.get(lang)?.color || "black",
-                } as React.CSSProperties
-              }
-            >
-              <img
-                src={`/assets/${languagesMap.get(lang)?.img}`}
-                alt=""
-                className="language-icon"
-              />
-              {lang}
-            </span>
-          ))}
+          {getLanguageIcons(languages)}
         </section>
         <section className="project-summary">
           <p>{summary}</p>
@@ -80,4 +70,34 @@ export default function Project({
       </div>
     </article>
   );
+}
+
+function getLanguageIcons(languages: string[]) {
+  return languages.map((lang) => {
+    const langObj = languagesMap.get(lang);
+    const extraStyles: React.CSSProperties = {};
+    if (langObj?.color === "#000000" || langObj?.color === "black") {
+      extraStyles.backgroundColor = "#303030";
+      extraStyles.color = "white";
+    }
+    return (
+      <span
+        key={`${lang}tag`}
+        className="tag"
+        style={
+          {
+            "--tag-color": langObj?.color || "white",
+            ...extraStyles,
+          } as React.CSSProperties
+        }
+      >
+        <img
+          src={`/assets/${languagesMap.get(lang)?.img}`}
+          alt=""
+          className="language-icon"
+        />
+        {lang}
+      </span>
+    );
+  });
 }

@@ -40,12 +40,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    eventName: "Mines.Rocks",
+    eventName: "Masters Non-Thesis Project",
     year: 2023,
     title: "mines.rocks",
     img: MinesRocks.src,
     tags: ["Web Stack"],
-    languages: ["TypeScript", "Cloudflare Workers", "React"],
+    languages: ["NextJS", "TypeScript", "Cloudflare Workers", "React"],
     summary:
       "A platform for data driven course selection. The site shows average grades on a per course, and per assignment level, and is designed to help students choose classes that match their learning style.",
     description: "",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     title: "bubblz.space",
     // img: "https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/285/069/datas/gallery.jpg",
     tags: ["Web Stack"],
-    languages: ["Javascript", "NodeJS", "HTML", "CSS"],
+    languages: ["JavaScript", "NodeJS", "HTML", "CSS"],
     awards: [
       {
         award: "Best use of secured cloud technologies",

@@ -103,7 +103,7 @@ export const languages: Language[] = [
     language: "Java",
     img: "languageIcons/Java.svg",
     fluency: 60,
-    color: "#007396",
+    color: "#4e7896",
   },
 
   {
