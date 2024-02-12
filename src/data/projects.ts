@@ -1,3 +1,13 @@
+import SpotifyProject from "@/public/assets/project-images/spotify-widget.png";
+import KaleidoScope from "@/public/assets/project-images/kaleidoscope.png";
+import Planets from "@/public/assets/project-images/planet.png";
+import Synth from "@/public/assets/project-images/synth.png";
+import RotaryWoofer from "@/public/assets/project-images/rotary-woofer.png";
+import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
+import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
+//link icons
+import ExternalLink from "@/public/assets/icons/external-link.svg";
+import Github from "@/public/assets/icons/github.svg";
 export interface Project {
   eventName: string;
   year: number;
@@ -8,25 +18,66 @@ export interface Project {
   languages: string[];
   summary: string;
   description: string;
-  links?: { link: string; description: string }[];
+  links?: { link: string; description: string; img?: string }[];
 }
 export const projects: Project[] = [
   {
     eventName: "Truffle",
+    year: 2024,
+    title: "Spin the Wheel",
+    img: SpinWheel.src,
+    tags: ["Web Stack"],
+    languages: ["TypeScript", "Cloudflare Workers", "React"],
+    summary:
+      "A realtime serverless minigame for use on live streams as a Truffle.vip app. Viewers submit text entries that can be aproved or rejected by mods in the moderator dashboard.",
+    description: "",
+    links: [
+      {
+        link: "https://github.com/shanecranor/spin-the-wheel",
+        description: "Github",
+        img: Github.src,
+      },
+    ],
+  },
+  {
+    eventName: "Mines.Rocks",
+    year: 2023,
+    title: "mines.rocks",
+    img: MinesRocks.src,
+    tags: ["Web Stack"],
+    languages: ["TypeScript", "Cloudflare Workers", "React"],
+    summary:
+      "A platform for data driven course selection. The site shows average grades on a per course, and per assignment level, and is designed to help students choose classes that match their learning style.",
+    description: "",
+    links: [
+      {
+        link: "https://github.com/shanecranor/mines-rocks",
+        description: "Github",
+        img: Github.src,
+      },
+      {
+        link: "https://mines.rocks",
+        description: "Try it out!",
+        img: ExternalLink.src,
+      },
+    ],
+  },
+  {
+    eventName: "Truffle",
     year: 2022,
     title: "Spotify Integration For Streamers",
-    // img: '',
+    img: SpotifyProject.src,
     tags: ["Web Stack"],
-    languages: ["JavaScript", "TypeScript", "React"],
+    languages: ["JavaScript", "TypeScript", "Cloudflare Workers", "React"],
     summary:
-      "A full stack application that allows streamers to share their current spotify status without an OBS plugin by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
+      "A full stack webapp that allows streamers to share their current spotify status by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
     description: `Over the summer of 2022 I worked with Truffle and built a little GUI and backend that enables streamers to share what they are listing to on spotify with their listeners without cluttering up their stream. Using some tech from the Truffle developer platform I can inject an iframe into the Youtube or Twitch page. I made the overlay draggable, by controlling the iframe styles and listening to mouse events on the iframe.`,
   },
   {
     eventName: "HASS327, Music Technology",
     year: 2022,
     title: "Math Synth Experiment",
-    // img: '',
+    img: Synth.src,
     tags: ["Web Stack"],
     languages: ["JavaScript", "HTML", "CSS"],
     summary:
@@ -38,12 +89,14 @@ export const projects: Project[] = [
 		Feel free to check it out or read more about the inner workings and perfomance by using the links below! `,
     links: [
       {
-        link: "...",
-        description: "Learn More",
+        link: "https://github.com/shanecranor/JavascriptSynth",
+        description: "Github",
+        img: Github.src,
       },
       {
         link: "https://shane.cranor.org/synth/",
         description: "Try it out!",
+        img: ExternalLink.src,
       },
     ],
   },
@@ -51,22 +104,13 @@ export const projects: Project[] = [
     eventName: "MEGN540, Mechatronics",
     year: 2022,
     title: "Building A Rotary Subwoofer",
-    // img: '',
+    img: RotaryWoofer.src,
     tags: ["Hardware"],
     languages: ["Embedded C / Arduino C"],
     summary:
       "I built an ultra low frequency speaker system. The project involved milling a custom PCB with a Sallen-Key low-pass filter, implementing a PID controller to maintain fan speed, and shaking my entire house.",
     description: `In this project, we designed a rotary subwoofer to bypass	the physical constraints of traditional subwoofer design in attempt to produce high amplitude infrasonic frequencies. We	constructed and tested a functioning prototype and found that even at low RPM, the rotary subwoofer had superior infrasonic	performance to a traditional subwoofer at full volume. While there are some minor drawbacks to the fan subwoofer design, like a higher noise floor, the fan subwoofer has proven to be an effective and low cost method of reproducing ultra low frequencies.`,
-    links: [
-      {
-        link: "...",
-        description: "See it in action",
-      },
-      {
-        link: "https://shane.cranor.org/synth/",
-        description: "Learn More",
-      },
-    ],
+    links: [],
   },
   {
     eventName: "CSCI437, Computer Vision",
@@ -104,7 +148,7 @@ export const projects: Project[] = [
     eventName: "HackUMBC",
     year: 2020,
     title: "bubblz.space",
-    img: "https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/285/069/datas/gallery.jpg",
+    // img: "https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/285/069/datas/gallery.jpg",
     tags: ["Web Stack"],
     languages: ["Javascript", "NodeJS", "HTML", "CSS"],
     awards: [
@@ -140,7 +184,7 @@ export const projects: Project[] = [
     eventName: "Random Quarantine Project",
     year: 2020,
     title: "Procedural Interactive Pixel Art Kaleidoscope",
-    // img: 'https://shane.cranor.org/code/imgs/ClueGame.png',
+    img: KaleidoScope.src,
     tags: ["Graphics", "Web Stack"],
     languages: ["JavaScript", "PixiJS"],
     summary:
@@ -186,6 +230,7 @@ export const projects: Project[] = [
     title: "3D Space Game With Procedural Planets",
     tags: ["Graphics"],
     languages: ["Python"],
+    img: Planets.src,
     summary:
       "Fly around a line based 3D environment with stars and procedurally generated planets!",
     description: `Using the 3D engine I built in 2017, I created a space flight simulator demo in Python. For this project I also built a procedural planet generator that creates 3D planets with a specified level of detail. I use an algorithm that maps a 2D plane to points on a sphere and then use random noise to plot points on the planet's surface and to generate peaks and valleys. I also created a simple file type to store the 3D data for easy import and export.`,

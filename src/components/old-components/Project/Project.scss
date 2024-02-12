@@ -83,11 +83,14 @@
     inset 0px 0px 300px 0px rgba(white, 0.07);
 
   .img-container {
+    overflow: hidden;
+    container-type: inline-size;
     display: flex;
     box-sizing: border-box;
     justify-content: center;
     height: 365px;
     border-bottom: 1px solid rgba(white, 0.2);
+    // enable container sizing
     // border-radius: 8px;
 
     img {

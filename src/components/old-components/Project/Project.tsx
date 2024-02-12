@@ -5,6 +5,7 @@ import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
 import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
 import "./Project.scss";
 import { languagesMap } from "@/data/languages";
+import { PlaceholderImage } from "./PlaceholderImage";
 export default function Project({
   data,
   onClick,
@@ -38,10 +39,10 @@ export default function Project({
   return (
     <article className="project-container" onClick={onClick}>
       <div className="img-container">
-        {title.length % 2 ? (
-          <img src={SpinWheel.src} />
+        {data.img ? (
+          <img src={data.img} alt="" />
         ) : (
-          <img src={MinesRocks.src} />
+          <PlaceholderImage seed={title} />
         )}
       </div>
       <div className="project-contents">
