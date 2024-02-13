@@ -23,8 +23,8 @@ function Page() {
               Shane Cranor
             </h1>
             <nav>
-              <Link href="/code">code</Link>
-              <a>Music</a>
+              <Link href="/code">Code</Link>
+              <Link href="/music">Music</Link>
               <a>Photos</a>
             </nav>
           </div>

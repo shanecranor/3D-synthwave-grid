@@ -6,7 +6,7 @@ import {
   projects,
 } from "@/data/projects";
 import React from "react";
-import Project from "@/components/old-components/Project/Project";
+import Project from "@/components/Project/Project";
 import { languages } from "@/data/languages";
 // import Router, { useRouter } from "next/router";
 export default function LanguagesAndProjects() {
@@ -45,10 +45,10 @@ export default function LanguagesAndProjects() {
         </div>
       </section>
       <section className="selected-projects">
-        {selectedProjects.map((props, index) => (
+        {selectedProjects.map((project, index) => (
           <Project
-            key={props.title}
-            data={props}
+            key={project.title}
+            data={project}
             onClick={() =>
               // Router.push({ query: { ...query, project: index } }, undefined, {
               //   shallow: true,

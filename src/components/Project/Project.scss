@@ -58,31 +58,6 @@
         }
       }
     }
-    > .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 10px;
-      font-family: "Open Sans";
-      font-weight: 400;
-      align-items: center;
-
-      > .tag {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        filter: saturate(60%);
-        font-weight: 600;
-        background: color-mix(in srgb, var(--tag-color) 30%, rgba(white, 0));
-        color: color-mix(in srgb, var(--tag-color) 100%, rgba(white, 0));
-        padding: 4px 8px;
-        border-radius: 8px;
-        img {
-          height: 16px;
-          margin-right: 5px;
-        }
-      }
-    }
 
     > .project-summary {
       display: inline-block;

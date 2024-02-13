@@ -1,8 +1,10 @@
-import "./featured.scss";
-import Section from "@/components/old-components/Section/Section";
+import "./Featured.scss";
 import syllabuddiesImg from "@/public/assets/project-images/syllabuddies.png";
 import minesRocksImg from "@/public/assets/project-images/mines-rocks.png";
 import spinWheelImg from "@/public/assets/project-images/spin-wheel.png";
+import { getLanguageIcons } from "@/components/Project/LanguageIcons";
+import { ProjectTags } from "@/components/ProjectTags/ProjectTags";
+import { projects } from "@/data/projects";
 export const Featured = () => {
   return (
     // <Section header="Featured Projects" startOpen={true}>
@@ -15,6 +17,12 @@ export const Featured = () => {
             Truffle.vip app. Viewers submit text entries that can be aproved or
             rejected by mods in the moderator dashboard.
           </p>
+          <ProjectTags
+            languages={
+              projects.find((proj) => proj.title === "Spin the Wheel")
+                ?.languages || []
+            }
+          />
         </div>
         <img src={spinWheelImg.src} alt="Spin the Wheel" />
       </article>
@@ -26,6 +34,12 @@ export const Featured = () => {
             grades on a per course, and per assignment level, and is designed to
             help students choose classes that match their learning style.
           </p>
+          <ProjectTags
+            languages={
+              projects.find((proj) => proj.title === "mines.rocks")
+                ?.languages || []
+            }
+          />
         </div>
         <img src={minesRocksImg.src} alt="mines.rocks" />
       </article>

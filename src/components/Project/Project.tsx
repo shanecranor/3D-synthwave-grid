@@ -5,7 +5,9 @@ import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
 import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
 import "./Project.scss";
 import { languagesMap } from "@/data/languages";
-import { PlaceholderImage } from "./PlaceholderImage";
+import { PlaceholderImage } from "../PlaceholderImage/PlaceholderImage";
+import { getLanguageIcons } from "./LanguageIcons";
+import { ProjectTags } from "../ProjectTags/ProjectTags";
 export default function Project({
   data,
   onClick,
@@ -61,43 +63,11 @@ export default function Project({
             )) || ""}
           </div>
         </h2>
-        <section className="project-tags">
-          {getLanguageIcons(languages)}
-        </section>
+        <ProjectTags languages={languages} />
         <section className="project-summary">
           <p>{summary}</p>
         </section>
       </div>
     </article>
   );
-}
-
-function getLanguageIcons(languages: string[]) {
-  return languages.map((lang) => {
-    const langObj = languagesMap.get(lang);
-    const extraStyles: React.CSSProperties = {};
-    if (langObj?.color === "#000000" || langObj?.color === "black") {
-      extraStyles.backgroundColor = "#303030";
-      extraStyles.color = "white";
-    }
-    return (
-      <span
-        key={`${lang}tag`}
-        className="tag"
-        style={
-          {
-            "--tag-color": langObj?.color || "white",
-            ...extraStyles,
-          } as React.CSSProperties
-        }
-      >
-        <img
-          src={`/assets/${languagesMap.get(lang)?.img}`}
-          alt=""
-          className="language-icon"
-        />
-        {lang}
-      </span>
-    );
-  });
 }
