@@ -43,8 +43,15 @@ export const languages: Language[] = [
   },
   {
     language: "PostgreSQL",
-    color: "#336791",
+    img: "languageIcons/PostgreSQL.svg",
+    color: "#4d9ddd", //"#336791",
     fluency: 80,
+  },
+  {
+    language: "GraphQL",
+    img: "languageIcons/GraphQL.svg",
+    color: "#e535ab",
+    fluency: 70,
   },
   {
     language: "HTML",

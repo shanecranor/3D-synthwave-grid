@@ -1,4 +1,5 @@
 import SpotifyProject from "@/public/assets/project-images/spotify-widget2.png";
+import Syllabuddies from "@/public/assets/project-images/syllabuddies.png";
 import DoorbellCam from "@/public/assets/project-images/doorbell-cam.jpg";
 import CharucoDraw from "@/public/assets/project-images/charuco-draw.png";
 import KaleidoScope from "@/public/assets/project-images/kaleidoscope.png";
@@ -10,6 +11,7 @@ import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
 //link icons
 import ExternalLink from "@/public/assets/icons/external-link.svg";
 import Github from "@/public/assets/icons/github.svg";
+import Youtube from "@/public/assets/icons/youtube.svg";
 export interface Project {
   eventName: string;
   year: number;
@@ -29,9 +31,9 @@ export const projects: Project[] = [
     title: "Spin the Wheel",
     img: SpinWheel.src,
     tags: ["Web Stack"],
-    languages: ["TypeScript", "Cloudflare Workers", "React"],
+    languages: ["TypeScript", "Cloudflare Workers", "React", "GraphQL"],
     summary:
-      "A realtime serverless minigame for use on live streams as a Truffle.vip app. Viewers submit text entries that can be aproved or rejected by mods in the moderator dashboard.",
+      "A realtime serverless minigame for use on live streams as a Truffle.vip app. Viewers submit text entries that can be approved or rejected by mods in the moderator dashboard.",
     description: "",
     links: [
       {
@@ -47,7 +49,13 @@ export const projects: Project[] = [
     title: "mines.rocks",
     img: MinesRocks.src,
     tags: ["Web Stack"],
-    languages: ["NextJS", "TypeScript", "Cloudflare Workers", "React"],
+    languages: [
+      "NextJS",
+      "TypeScript",
+      "Cloudflare Workers",
+      "React",
+      "PostgreSQL",
+    ],
     summary:
       "A platform for data driven course selection. The site shows average grades on a per course, and per assignment level, and is designed to help students choose classes that match their learning style.",
     description: "",
@@ -65,6 +73,29 @@ export const projects: Project[] = [
     ],
   },
   {
+    eventName: "Intro to Tech Startups",
+    year: 2023,
+    title: "Syllabuddies",
+    img: Syllabuddies.src,
+    tags: ["Web Stack"],
+    languages: ["TypeScript", "Cloudflare Workers", "React", "PostgreSQL"],
+    summary:
+      "Crowd sourced syllabi sharing site for the Colorado School of Mines.",
+    description: "",
+    links: [
+      {
+        link: "https://github.com/498-syllabus/syllabuddy",
+        description: "Github",
+        img: Github.src,
+      },
+      {
+        link: "https://syllabuddies.pages.dev/",
+        description: "Try it out!",
+        img: ExternalLink.src,
+      },
+    ],
+  },
+  {
     eventName: "Truffle",
     year: 2022,
     title: "Spotify Integration For Streamers",
@@ -74,6 +105,13 @@ export const projects: Project[] = [
     summary:
       "A full stack webapp that allows streamers to share their current spotify status by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
     description: `Over the summer of 2022 I worked with Truffle and built a little GUI and backend that enables streamers to share what they are listing to on spotify with their listeners without cluttering up their stream. Using some tech from the Truffle developer platform I can inject an iframe into the Youtube or Twitch page. I made the overlay draggable, by controlling the iframe styles and listening to mouse events on the iframe.`,
+    links: [
+      {
+        link: "https://www.youtube.com/watch?v=1EcH_c29fJg&feature=youtu.be",
+        description: "Demo video",
+        img: Youtube.src,
+      },
+    ],
   },
   {
     eventName: "HASS327, Music Technology",
@@ -81,7 +119,7 @@ export const projects: Project[] = [
     title: "Math Synth Experiment",
     img: Synth.src,
     tags: ["Web Stack"],
-    languages: ["JavaScript", "HTML", "CSS"],
+    languages: ["JavaScript", "HTML"],
     summary:
       "Have you ever wanted to manipulate synthesized sound with math? Create the music of your dreams by controlling volume and pitch with functions that you can easily write yourself.",
     description: `I created this synth for my Music Technology class. The requirements for the synth stated that it needed to play multiple notes and have multiple waveforms. I had always wanted to be able to modify synth properties with equations similar to how you can control any parameter with any output in a traditional rack mount modular synth so I figured out the web audio API and built it myself.
