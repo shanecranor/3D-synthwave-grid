@@ -4,6 +4,10 @@ import { useState } from "react";
 import "./page.scss";
 import { ThreeJsCanvas } from "./ThreeJsCanvas";
 import Link from "next/link";
+import dynamic, { Loader, LoaderComponent } from "next/dynamic";
+import { ComponentType } from "react";
+// import ThreeJsCanvas from "./ThreeJsCanvas";
+
 function Page() {
   const [tile, setTile] = useState(0);
 
@@ -59,11 +63,10 @@ function Page() {
           </section>
         </div>
       </main>
-      {typeof window !== "undefined" && (
-        <div className="three-js-canvas">
-          <ThreeJsCanvas />
-        </div>
-      )}
+
+      <div className="three-js-canvas">
+        <ThreeJsCanvas />
+      </div>
 
       <div
         dangerouslySetInnerHTML={{

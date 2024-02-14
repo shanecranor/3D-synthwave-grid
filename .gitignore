@@ -12,7 +12,7 @@ old_ignore
 # next.js
 /.next/
 /out/
-dist/
+/dist/
 
 # production
 /build

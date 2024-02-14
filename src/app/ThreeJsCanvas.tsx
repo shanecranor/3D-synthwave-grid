@@ -39,11 +39,15 @@ function SetCameraPosition() {
 }
 
 export const ThreeJsCanvas = () => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-    ratio: window.innerWidth / window.innerHeight,
-  });
+  const [windowDimensions, setWindowDimensions] = useState(
+    typeof window !== "undefined"
+      ? {
+          width: window.innerWidth,
+          height: window.innerHeight,
+          ratio: window.innerWidth / window.innerHeight,
+        }
+      : { width: 1920, height: 1080, ratio: 1920 / 1080 }
+  );
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions({
@@ -56,7 +60,7 @@ export const ThreeJsCanvas = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <Canvas dpr={1}>
+    <Canvas dpr={1} suppressHydrationWarning>
       <Stats />
       <SetCameraPosition />
       <Background windowDimensions={windowDimensions} />
