@@ -1,5 +1,11 @@
 import "./PlaceholderImage.scss";
-export const PlaceholderImage = ({ seed }: { seed: string }) => {
+export const PlaceholderImage = ({
+  seed,
+  animate,
+}: {
+  seed: string;
+  animate?: boolean;
+}) => {
   const numBlobs = 10;
   const blobs = [];
   const hash = cyrb128(seed);
@@ -8,21 +14,26 @@ export const PlaceholderImage = ({ seed }: { seed: string }) => {
     blobs.push(
       <div
         key={i}
-        className="blob"
+        className={`blob ${animate ? "animated" : ""}`}
         style={{
           left: `${rand() * 100}%`,
           top: `${rand() * 100}%`,
           width: `${rand() * 120}%`,
           height: `${rand() * 120}%`,
-          animationDuration: `${rand() * 10 + 5}s`,
+          animationDuration: `${rand() * 10 + 8}s`,
           backgroundColor: `hsl(${rand() * 360}, 100%, 50%)`,
         }}
       />
     );
   }
-  return <div className="placeholder-image">{blobs}</div>;
+  return (
+    <div className="placeholder-image-outer">
+      <div className="placeholder-image">{blobs}</div>
+    </div>
+  );
 };
 
+// seeded random number generator for consistancy
 function splitmix32(a: number) {
   return function () {
     a |= 0;

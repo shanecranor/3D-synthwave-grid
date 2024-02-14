@@ -1,7 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import "./Section.scss";
-export default function Section({ children, header, startOpen: defaultState }) {
+export default function Section({
+  children,
+  header,
+  startOpen: defaultState,
+}: {
+  children: React.ReactNode;
+  header: string;
+  startOpen?: boolean;
+}) {
   const [expanded, setExpanded] = useState(defaultState);
   return (
     <section className={"section " + (expanded ? "expanded" : "")}>

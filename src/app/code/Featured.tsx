@@ -49,6 +49,12 @@ export const Featured = () => {
           <p>
             Crowd sourced syllabi sharing site for the Colorado School of Mines.
           </p>
+          <ProjectTags
+            languages={
+              projects.find((proj) => proj.title === "Syllabuddies")
+                ?.languages || []
+            }
+          />
         </div>
         <img src={syllabuddiesImg.src} alt="Syllabuddies" />
       </article>
