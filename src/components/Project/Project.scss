@@ -4,9 +4,9 @@
   transition: height 1s ease, outline-offset 0.5s, outline-color 0.5s,
     box-shadow 0.5s;
   border-radius: 8px;
-
   box-shadow: 0px 0px 15px 0px rgba(white, 0.04),
     inset 0px 0px 300px 0px rgba(white, 0.07);
+
   overflow: hidden;
   .img-container {
     overflow: hidden;
@@ -35,7 +35,8 @@
       gap: 10px;
       justify-content: space-between;
       text-align: left;
-      font-weight: 500;
+      font-family: var(--font-inter), sans-serif;
+      font-weight: 600;
       line-height: normal;
       padding: 0px;
       margin: 0px;
@@ -61,7 +62,7 @@
 
     > .project-summary {
       display: inline-block;
-      font-family: "Open Sans";
+      font-family: var(--font-open-sans), sans-serif;
       font-weight: 200;
       white-space: pre-wrap;
     }

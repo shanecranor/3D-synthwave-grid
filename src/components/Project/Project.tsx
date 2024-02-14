@@ -6,7 +6,7 @@ import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
 import "./Project.scss";
 import { languagesMap } from "@/data/languages";
 import { PlaceholderImage } from "../PlaceholderImage/PlaceholderImage";
-import { getLanguageIcons } from "./LanguageIcons";
+import { getLanguageIcons } from "../ProjectTags/LanguageIcons";
 import { ProjectTags } from "../ProjectTags/ProjectTags";
 export default function Project({
   data,

@@ -2,7 +2,6 @@ import "./Featured.scss";
 import syllabuddiesImg from "@/public/assets/project-images/syllabuddies.png";
 import minesRocksImg from "@/public/assets/project-images/mines-rocks.png";
 import spinWheelImg from "@/public/assets/project-images/spin-wheel.png";
-import { getLanguageIcons } from "@/components/Project/LanguageIcons";
 import { ProjectTags } from "@/components/ProjectTags/ProjectTags";
 import { projects } from "@/data/projects";
 export const Featured = () => {
@@ -41,6 +40,7 @@ export const Featured = () => {
             }
           />
         </div>
+        <div className="spacer" />
         <img src={minesRocksImg.src} alt="mines.rocks" />
       </article>
       <article>

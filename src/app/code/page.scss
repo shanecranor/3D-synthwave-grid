@@ -1,7 +1,12 @@
-@import "@/style-modules/fonts.scss";
 html,
-body{
+body {
   overflow: auto;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-weight: 300;
+  color: white;
+  //line-height: 1.0;
+  background: black;
+  padding-top: 0px;
 }
 main {
   overflow: unset;

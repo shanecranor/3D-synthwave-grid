@@ -103,7 +103,8 @@ main {
 // Globals
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, var(--font-inter), system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   font-weight: 400;
 
   color-scheme: dark;
