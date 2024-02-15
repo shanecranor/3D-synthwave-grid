@@ -133,7 +133,7 @@ export const projects: Project[] = [
     title: "Syllabuddies",
     img: Syllabuddies.src,
     tags: ["Web Stack", "Backend"],
-    languages: ["TypeScript", "Cloudflare Workers", "React", "PostgreSQL"],
+    languages: ["NextJS", "PostgreSQL", "TypeScript", "React"],
     summary:
       "Crowd sourced syllabi sharing site for the Colorado School of Mines.",
     description: "",
@@ -353,6 +353,8 @@ export function getProjectsByLanguage(language: string) {
 export function getProjectsByTag(category: string) {
   return projects.filter((p) => p.tags.includes(category) || category == "All");
 }
+export const tags = Array.from(new Set(projects.map((p) => p.tags).flat()));
+tags.unshift("All");
 export function getProjectsByLanguages(
   projects: Project[],
   languages: string[]
