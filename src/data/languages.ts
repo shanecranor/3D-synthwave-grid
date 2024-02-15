@@ -14,7 +14,7 @@ export const languages: Language[] = [
   {
     language: "TypeScript",
     img: "languageIcons/TypeScript.svg",
-    color: "#3178c6",
+    color: "#70a4db",
     fluency: 90,
   },
   {
@@ -28,6 +28,12 @@ export const languages: Language[] = [
     img: "languageIcons/NodeJS.svg",
     color: "#68a063",
     fluency: 75,
+  },
+  {
+    language: "Supabase",
+    img: "languageIcons/Supabase.svg",
+    color: "#4cffae",
+    fluency: 80,
   },
   {
     language: "NextJS",
@@ -50,7 +56,7 @@ export const languages: Language[] = [
   {
     language: "FastAPI",
     img: "languageIcons/FastAPI.svg",
-    color: "#009688",
+    color: "#00bfac",
     fluency: 70,
   },
   {
@@ -62,7 +68,7 @@ export const languages: Language[] = [
   {
     language: "GraphQL",
     img: "languageIcons/GraphQL.svg",
-    color: "#e535ab",
+    color: "#ff66cc",
     fluency: 70,
   },
   {
@@ -74,13 +80,13 @@ export const languages: Language[] = [
   {
     language: "HTML",
     img: "languageIcons/HTML5.svg",
-    color: "#e34c26",
+    color: "#f09e8a",
     fluency: 100,
   },
   {
     language: "CSS",
     img: "languageIcons/CSS.svg",
-    color: "#264de4",
+    color: "#607ceb",
     fluency: 90,
   },
   {
@@ -105,6 +111,7 @@ export const languages: Language[] = [
   {
     language: "PixiJS",
     fluency: 80,
+    img: "languageIcons/PixiJS.svg",
     color: "#ff69b4",
   },
   {

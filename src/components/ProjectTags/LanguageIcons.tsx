@@ -1,12 +1,14 @@
 import { languagesMap } from "@/data/languages";
+import React from "react";
 
 export function getLanguageIcons(languages: string[]) {
   return languages.map((lang) => {
     const langObj = languagesMap.get(lang);
-    const extraStyles: React.CSSProperties = {};
+    const extraStyles: Record<string, string> = {};
     if (langObj?.color === "#000000" || langObj?.color === "black") {
       extraStyles.backgroundColor = "#303030";
       extraStyles.color = "white";
+      extraStyles["--tag-color"] = "white";
     }
     return (
       <span

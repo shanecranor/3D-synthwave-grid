@@ -33,7 +33,7 @@ export const projects: Project[] = [
     year: 2024,
     title: "OreCart Tracking System",
     tags: ["Web Stack", "Backend", "Hardware", "Mobile"],
-    languages: ["TypeScript", "React", "React Native", "Python", "FastAPI"],
+    languages: ["React Native", "FastAPI", "TypeScript", "React", "Python"],
     summary:
       "Developed a comprehensive tracking system for the OreCart, a public transit service in Golden, with a student team from the Mines ACM club. The project involved creating tracking hardware for the vans, a mobile app, a database, and an API. I helped lead/steer the project and was responsible for building the admin panel and doing code review.",
     description: "",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     title: "Spin the Wheel",
     img: SpinWheel.src,
     tags: ["Web Stack", "Backend"],
-    languages: ["TypeScript", "Cloudflare Workers", "React", "GraphQL"],
+    languages: ["TypeScript", "React", "Cloudflare Workers", "GraphQL"],
     summary:
       "A realtime serverless minigame for use on live streams as a Truffle.vip app. Viewers submit text entries that can be approved or rejected by mods in the moderator dashboard.",
     description: "",
@@ -72,8 +72,9 @@ export const projects: Project[] = [
     languages: [
       "NextJS",
       "TypeScript",
-      "Cloudflare Workers",
       "React",
+      "Cloudflare Workers",
+      "Supabase",
       "PostgreSQL",
     ],
     summary:
