@@ -42,6 +42,18 @@ export const languages: Language[] = [
     fluency: 70,
   },
   {
+    language: "React Native",
+    img: "languageIcons/ExpoGo.svg",
+    color: "#000000",
+    fluency: 70,
+  },
+  {
+    language: "FastAPI",
+    img: "languageIcons/FastAPI.svg",
+    color: "#009688",
+    fluency: 70,
+  },
+  {
     language: "PostgreSQL",
     img: "languageIcons/PostgreSQL.svg",
     color: "#4d9ddd", //"#336791",
