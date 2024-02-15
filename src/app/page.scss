@@ -49,7 +49,7 @@
     filter: url(#filterNoGlitch)
       drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
     @supports (background: -webkit-named-image(i)) {
-      filter: none;
+      filter: none; //disable the filter for safari
     }
     color: White;
     z-index: 1;
@@ -88,7 +88,9 @@
       font-weight: 200;
       filter: url(#filterNoGlitch)
         drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
-
+      @supports (background: -webkit-named-image(i)) {
+        filter: none; //disable the filter for safari
+      }
       &:hover {
         color: rgba(255, 255, 255, 1);
       }
