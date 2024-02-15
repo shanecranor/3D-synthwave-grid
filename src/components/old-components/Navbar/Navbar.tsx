@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 import Link from "next/link";
 const navbarLinks = {
-  Home: "https://shane.cranor.org",
+  Home: "/",
   Code: "/code",
   Music: "/music",
   Photos: "https://shane.cranor.org/Photos/index.html",
