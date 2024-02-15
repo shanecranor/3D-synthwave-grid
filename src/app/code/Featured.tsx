@@ -43,7 +43,7 @@ export const Featured = () => {
         <div className="spacer" />
         <img src={minesRocksImg.src} alt="mines.rocks" />
       </article>
-      <article>
+      {/* <article>
         <div className="text">
           <h3>Syllabuddies</h3>
           <p>
@@ -57,7 +57,7 @@ export const Featured = () => {
           />
         </div>
         <img src={syllabuddiesImg.src} alt="Syllabuddies" />
-      </article>
+      </article> */}
     </div>
     // </Section>
   );

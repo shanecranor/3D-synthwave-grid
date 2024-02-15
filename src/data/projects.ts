@@ -8,10 +8,12 @@ import Synth from "@/public/assets/project-images/synth.png";
 import RotaryWoofer from "@/public/assets/project-images/rotary-woofer.png";
 import SpinWheel from "@/public/assets/project-images/spin-wheel.png";
 import MinesRocks from "@/public/assets/project-images/mines-rocks.png";
+import TruffleHud from "@/public/assets/project-images/truffle-hud.png";
 //link icons
 import ExternalLink from "@/public/assets/icons/external-link.svg";
 import Github from "@/public/assets/icons/github.svg";
 import Youtube from "@/public/assets/icons/youtube.svg";
+
 export interface Project {
   eventName: string;
   year: number;
@@ -24,6 +26,7 @@ export interface Project {
   description: string;
   links?: { link: string; description: string; img?: string }[];
 }
+
 export const projects: Project[] = [
   {
     eventName: "Truffle",
@@ -68,6 +71,24 @@ export const projects: Project[] = [
       {
         link: "https://mines.rocks",
         description: "Try it out!",
+        img: ExternalLink.src,
+      },
+    ],
+  },
+  {
+    eventName: "Truffle",
+    year: 2023,
+    title: "Truffle HUD",
+    img: TruffleHud.src,
+    tags: ["Web Stack"],
+    languages: ["TypeScript", "React"],
+    summary:
+      "The primary interface for the viewer facing part of the Truffle browser extension with over 200k users. Includes a configurable sidebar for viewing creator info / managing Truffle apps, a draggable iframe window system for Truffle apps, and a toast notification system.",
+    description: "",
+    links: [
+      {
+        link: "https://truffle-hud.pages.dev/",
+        description: "Demo!",
         img: ExternalLink.src,
       },
     ],
