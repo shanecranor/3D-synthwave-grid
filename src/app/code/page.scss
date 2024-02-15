@@ -1,15 +1,19 @@
 html,
 body {
-  overflow: auto;
   font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 300;
   color: white;
   //line-height: 1.0;
   background: black;
   padding-top: 0px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: auto;
 }
-main {
-  overflow: unset;
+.p-code {
+  overflow: hidden;
   max-width: 1200px;
-  margin: auto;
+  margin: 0px auto;
 }

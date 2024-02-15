@@ -13,7 +13,7 @@ function Page() {
 
   return (
     <>
-      <main>
+      <main className="p-home">
         <div
           className="nav-grid"
           style={{ transform: `translateX(${tile * -100}vw)` }}

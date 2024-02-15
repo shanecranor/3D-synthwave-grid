@@ -2,7 +2,7 @@
   font-family: "Astro Armada";
   src: url("../../public/_astroarmada.ttf");
 }
-main {
+.p-home {
   overflow: hidden;
   height: 100%;
   max-height: 100dvh;
@@ -70,6 +70,8 @@ main {
   }
   nav {
     all: unset;
+    font-family: var(--font-poppins), system-ui, Avenir, Helvetica, Arial,
+      sans-serif;
     display: flex;
     gap: 10vw;
     justify-content: center;
@@ -80,7 +82,7 @@ main {
       text-decoration: none;
       color: rgba(255, 255, 255, 0.9);
       font-size: max(3vw, 24px);
-      font-weight: 300;
+      font-weight: 200;
       filter: url(#filterNoGlitch)
         drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
 
@@ -103,7 +105,7 @@ main {
 // Globals
 
 :root {
-  font-family: Inter, var(--font-inter), system-ui, Avenir, Helvetica, Arial,
+  font-family: var(--font-poppins), system-ui, Avenir, Helvetica, Arial,
     sans-serif;
   font-weight: 400;
 

@@ -12,7 +12,7 @@ const Page = () => {
       <header>
         <Navbar />
       </header>
-      <main>
+      <main className="p-code">
         <BigTitle text="Code Portfolio" />
         <Featured />
         <Section header="All Projects" startOpen={true}>
