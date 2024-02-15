@@ -54,6 +54,12 @@ export const languages: Language[] = [
     fluency: 70,
   },
   {
+    language: "MongoDB",
+    img: "languageIcons/MongoDB.svg",
+    color: "#4db33d",
+    fluency: 70,
+  },
+  {
     language: "HTML",
     img: "languageIcons/HTML5.svg",
     color: "#e34c26",

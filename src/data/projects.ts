@@ -29,11 +29,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    eventName: "Mines ACM",
+    year: 2024,
+    title: "OreCart Tracking System",
+    tags: ["Web Stack", "Backend", "Hardware", "Mobile"],
+    languages: ["TypeScript", "React", "React Native", "Python", "FastAPI"],
+    summary:
+      "Developed a comprehensive tracking system for the OreCart, a public transit service in Golden, with a student team from the Mines ACM club. The project involved creating tracking hardware for the vans, a mobile app, a database, and an API. I helped lead/steer the project and was responsible for building the admin panel and doing code review.",
+    description: "",
+    links: [
+      {
+        link: "https://github.com/OreCart/OreCart-App",
+        description: "Github",
+        img: Github.src,
+      },
+    ],
+  },
+  {
     eventName: "Truffle",
     year: 2024,
     title: "Spin the Wheel",
     img: SpinWheel.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Backend"],
     languages: ["TypeScript", "Cloudflare Workers", "React", "GraphQL"],
     summary:
       "A realtime serverless minigame for use on live streams as a Truffle.vip app. Viewers submit text entries that can be approved or rejected by mods in the moderator dashboard.",
@@ -51,7 +68,7 @@ export const projects: Project[] = [
     year: 2023,
     title: "mines.rocks",
     img: MinesRocks.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Backend"],
     languages: [
       "NextJS",
       "TypeScript",
@@ -80,7 +97,7 @@ export const projects: Project[] = [
     year: 2023,
     title: "Truffle HUD",
     img: TruffleHud.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Frontend"],
     languages: ["TypeScript", "React"],
     summary:
       "The primary interface for the viewer facing part of the Truffle browser extension with over 200k users. Includes a configurable sidebar for viewing creator info / managing Truffle apps, a draggable iframe window system for Truffle apps, and a toast notification system.",
@@ -94,11 +111,28 @@ export const projects: Project[] = [
     ],
   },
   {
+    eventName: "Social and Collaborative Computing",
+    year: 2023,
+    title: "Interactive Reddit Bot",
+    tags: ["Backend"],
+    summary:
+      "A bot that lets users subscribe to keywords on a subreddit and promotes discussion. Built in Python with PRAW and MongoDB. Part of a research paper submitted to CHI 2024 that I am a co-author on.",
+    description: "",
+    languages: ["Python", "MongoDB"],
+    links: [
+      {
+        link: "https://github.com/shanecranor/CSSpark_Bot",
+        description: "Github",
+        img: Github.src,
+      },
+    ],
+  },
+  {
     eventName: "Intro to Tech Startups",
     year: 2023,
     title: "Syllabuddies",
     img: Syllabuddies.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Backend"],
     languages: ["TypeScript", "Cloudflare Workers", "React", "PostgreSQL"],
     summary:
       "Crowd sourced syllabi sharing site for the Colorado School of Mines.",
@@ -121,7 +155,7 @@ export const projects: Project[] = [
     year: 2022,
     title: "Spotify Integration For Streamers",
     img: SpotifyProject.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Backend"],
     languages: ["JavaScript", "TypeScript", "Cloudflare Workers", "React"],
     summary:
       "A full stack webapp that allows streamers to share their current spotify status by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
@@ -139,7 +173,7 @@ export const projects: Project[] = [
     year: 2022,
     title: "Math Synth Experiment",
     img: Synth.src,
-    tags: ["Web Stack"],
+    tags: ["Web Stack", "Audio"],
     languages: ["JavaScript", "HTML"],
     summary:
       "Have you ever wanted to manipulate synthesized sound with math? Create the music of your dreams by controlling volume and pitch with functions that you can easily write yourself.",
@@ -166,7 +200,7 @@ export const projects: Project[] = [
     year: 2022,
     title: "Building A Rotary Subwoofer",
     img: RotaryWoofer.src,
-    tags: ["Hardware"],
+    tags: ["Hardware", "Audio"],
     languages: ["Embedded C / Arduino C"],
     summary:
       "I built an ultra low frequency speaker system. The project involved milling a custom PCB with a Sallen-Key low-pass filter, implementing a PID controller to maintain fan speed, and shaking my entire house.",
@@ -246,7 +280,7 @@ export const projects: Project[] = [
     year: 2020,
     title: "Procedural Interactive Pixel Art Kaleidoscope",
     img: KaleidoScope.src,
-    tags: ["Graphics", "Web Stack"],
+    tags: ["Graphics", "Web Stack", "Frontend"],
     languages: ["JavaScript", "PixiJS"],
     summary:
       "Using Javascript and some arbitrary math to make some cool looking pixel art!",
