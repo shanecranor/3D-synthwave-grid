@@ -48,6 +48,9 @@
     font-size: 13vw;
     filter: url(#filterNoGlitch)
       drop-shadow(rgba(255, 255, 255, 0.2) 0px 0px 20px);
+    @supports (background: -webkit-named-image(i)) {
+      filter: none;
+    }
     color: White;
     z-index: 1;
     text-align: center;
@@ -113,20 +116,6 @@
   color: rgba(255, 255, 255, 1);
   background-color: black;
   background: linear-gradient(90deg, rgb(61, 0, 61) 0%, rgb(0, 20, 48) 100%);
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-#root {
-  height: 100%;
 }
 
 html,
