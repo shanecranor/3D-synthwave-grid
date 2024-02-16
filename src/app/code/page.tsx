@@ -8,11 +8,9 @@ import "./page.scss";
 import { Featured } from "./Featured";
 const Page = () => {
   return (
-    <div>
-      <header>
-        <Navbar />
-      </header>
-      <main className="p-code">
+    <div className="p-code">
+      <Navbar />
+      <main>
         <BigTitle text="Code Portfolio" />
         <Featured />
         <Section header="All Projects" startOpen={true}>
