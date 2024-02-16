@@ -159,8 +159,8 @@ export const projects: Project[] = [
     tags: ["Web Stack", "Backend"],
     languages: ["JavaScript", "TypeScript", "Cloudflare Workers", "React"],
     summary:
-      "A full stack webapp that allows streamers to share their current spotify status by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
-    description: `Over the summer of 2022 I worked with Truffle and built a little GUI and backend that enables streamers to share what they are listing to on spotify with their listeners without cluttering up their stream. Using some tech from the Truffle developer platform I can inject an iframe into the Youtube or Twitch page. I made the overlay draggable, by controlling the iframe styles and listening to mouse events on the iframe.`,
+      "A full stack webapp that allows streamers to share their current Spotify status by using the Truffle developer platform to inject an iframe into the Youtube or Twitch page.",
+    description: `Over the summer of 2022 I worked with Truffle and built a little GUI and backend that enables streamers to share what they are listing to on spotify with their listeners. Using some tech from the Truffle developer platform I can inject an iframe into the Youtube or Twitch page. I learned a lot about APIs and auth tokens through calling the Spotify API, and I learned a lot about pointer events and iframes. The primary technical challenge was making the iframe draggable. The Truffle extension provides a method for iframes to set their own styles, but there are some issues with moving the iframe itself while listening to mouse events inside the iframe. The final solution was to make the iframe take up the full page with a transparent background, and then apply a clip path to prevent the iframe from blocking clicks. When the user drags the iframe, they are really dragging the clip path and div contents, while the iframe remains stationary.`,
     links: [
       {
         link: "https://www.youtube.com/watch?v=1EcH_c29fJg&feature=youtu.be",

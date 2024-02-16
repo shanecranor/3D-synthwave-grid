@@ -187,3 +187,57 @@
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
 }
+
+#modal {
+  border: 0;
+  padding: 0px;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 32px 10px;
+  position: relative;
+
+  > .modal-inner {
+    max-width: 700px;
+    padding: 24px;
+    border: 0;
+    h1 {
+      font-size: 32px;
+      margin-top: 0px;
+      margin-bottom: 8px;
+    }
+    .project-img {
+      margin-bottom: 8px;
+      box-sizing: border-box;
+      container-type: inline-size;
+      max-height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+      }
+    }
+    .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      > a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        > img {
+          width: 20px;
+          height: auto;
+        }
+      }
+    }
+  }
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+}
