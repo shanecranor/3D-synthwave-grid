@@ -41,7 +41,7 @@ function App() {
                 .
               </p>
               <p>
-                Some fun facts about me: I'm a shill for Cloudflare
+                Some fun facts about me: I{"'"}m a shill for Cloudflare
                 workers/pages, I love to cook, mess with electronics and make
                 music. I played collegiate Valorant (e-sports) in college and I
                 enjoy gaming occasionally.
