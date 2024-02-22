@@ -8,6 +8,7 @@
   max-height: 100dvh;
   max-width: 100dvw;
   width: 200%;
+  background: none;
 }
 .nav-grid {
   display: grid;
@@ -116,8 +117,6 @@
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 1);
-  background-color: black;
-  background: linear-gradient(90deg, rgb(61, 0, 61) 0%, rgb(0, 20, 48) 100%);
 }
 
 html,
@@ -127,4 +126,6 @@ body {
   padding: 0;
   position: relative;
   overflow: hidden; /* This prevents scrolling */
+  background: linear-gradient(90deg, rgb(61, 0, 61) 0%, rgb(0, 20, 48) 100%);
+  z-index: -2;
 }
