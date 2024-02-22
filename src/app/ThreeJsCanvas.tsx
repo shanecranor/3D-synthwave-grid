@@ -17,7 +17,7 @@ import {
   Clouds,
   GradientTexture,
   Stars,
-  Stats,
+  // Stats,
 } from "@react-three/drei";
 import { Background } from "@/components/3D/Background";
 class GlowMaterial extends THREE.MeshBasicMaterial {
@@ -42,10 +42,10 @@ export const ThreeJsCanvas = () => {
   const [windowDimensions, setWindowDimensions] = useState(
     typeof window !== "undefined"
       ? {
-          width: window.innerWidth,
-          height: window.innerHeight,
-          ratio: window.innerWidth / window.innerHeight,
-        }
+        width: window.innerWidth,
+        height: window.innerHeight,
+        ratio: window.innerWidth / window.innerHeight,
+      }
       : { width: 1920, height: 1080, ratio: 1920 / 1080 }
   );
   useEffect(() => {
@@ -61,7 +61,7 @@ export const ThreeJsCanvas = () => {
   }, []);
   return (
     <Canvas dpr={1} suppressHydrationWarning>
-      <Stats />
+      {/* <Stats /> */}
       <SetCameraPosition />
       <Background windowDimensions={windowDimensions} />
       <Stars
