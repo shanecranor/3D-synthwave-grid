@@ -1,0 +1,29 @@
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+  // font-family: "Open Sans";
+  font-family: var(--font-inter), sans-serif;
+  align-items: center;
+
+  > .tag {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    filter: saturate(65%);
+    font-weight: 600;
+    background: color-mix(in srgb, var(--tag-color) 10%, rgba(white, 0));
+    border: 1px solid color-mix(in srgb, var(--tag-color) 20%, rgba(white, 0));
+    color: color-mix(in srgb, var(--tag-color) 100%, rgba(white, 0));
+    padding: 4px 8px;
+    border-radius: 8px;
+    //disable wrap
+    white-space: nowrap;
+    img {
+      height: 16px;
+      width: auto;
+      margin-right: 5px;
+    }
+  }
+}

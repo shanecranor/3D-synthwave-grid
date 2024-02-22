@@ -1,0 +1,243 @@
+@use "sass:math";
+
+@mixin pseudostuff {
+  padding: 0px;
+  margin: 0px;
+  z-index: 10;
+  content: attr(data-text);
+  //display: inline-block;
+  transform-origin: var(--title-origin-x) 50%;
+  transition: transform 0.5s, letter-spacing 0.5s, text-shadow 0.5s;
+  transform-style: preserve-3D;
+  letter-spacing: normal;
+  mix-blend-mode: screen;
+  text-align: center;
+  //width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin RGBeffect {
+  @include pseudostuff;
+  display: flex;
+  color: rgb(255, 0, 0);
+
+  &:before {
+    @include pseudostuff;
+    color: rgb(0, 255, 0);
+    position: absolute;
+  }
+
+  &:after {
+    color: rgb(0, 0, 255);
+    //transform: translateY(-200%);
+    @include pseudostuff;
+    position: absolute;
+  }
+
+  &:hover {
+    --hover-letter-spacing: 0px;
+    --text-glow-alpha: 0.3;
+    --text-glow-radius: 5px;
+    text-shadow: 0px 0px var(--text-glow-radius)
+      rgba(red, var(--text-glow-alpha));
+    letter-spacing: var(--hover-letter-spacing);
+
+    &:before {
+      text-shadow: 0px 0px var(--text-glow-radius)
+        rgba(0, 255, 0, var(--text-glow-alpha));
+      letter-spacing: var(--hover-letter-spacing);
+      transform: rotateY(-5deg) rotateX(20deg) rotateZ(0.1deg);
+    }
+
+    &:after {
+      text-shadow: 0px 0px var(--text-glow-radius)
+        rgba(blue, var(--text-glow-alpha));
+      letter-spacing: var(--hover-letter-spacing);
+      transform: rotateY(10deg) rotateX(-20deg) rotateZ(-0.1deg);
+    }
+  }
+}
+
+@mixin fakeRGBoff {
+  $alpha2: 0.5;
+  text-shadow: 0px 0px 0px rgba(yellow, $alpha2), 0px 0px 0px rgba(red, $alpha2),
+    0px 0px 0px rgba(cyan, $alpha2), 0px 0px 0px rgba(blue, $alpha2);
+}
+
+@mixin fakeRGBon($x1, $y1, $blur) {
+  $alpha2: 0.4;
+  text-shadow: calc($x1 * 0.5) calc($y1 * 0.5) $blur rgba(yellow, $alpha2),
+    $x1 $y1 $blur rgba(red, $alpha2),
+    calc($x1 * -0.5) calc($y1 * -0.5) $blur rgba(cyan, $alpha2),
+    calc($x1 * -1) calc($y1 * -1) $blur rgba(blue, $alpha2);
+}
+
+.all-projects {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1600px;
+  margin-bottom: 200px;
+}
+
+.language-section {
+  > h1 {
+    font-size: min(4vw, 45px);
+  }
+
+  > .category-buttons {
+    margin-top: -10px;
+    margin-bottom: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: 3px;
+    > button {
+      //bigolesquares
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      padding: 7px;
+      margin-left: 0px;
+      font-size: 20px;
+      border: 1px rgba(white, 0.4) solid;
+      outline: 0px white solid;
+      color: white;
+      background: transparent;
+      font-family: var(--font-inter), sans-serif;
+      font-weight: 300;
+      // font-size: 15px;
+      border-radius: 10px;
+      transition: all 0.3s, outline 0.2s, outline-offset 0.2s, text-shadow 0.3s,
+        background 0.3s steps(1, jump-end), border 0.3s, padding 0.3s,
+        box-shadow 0.3s, color 0.3s ease-in-out;
+      $alpha: 0;
+      box-shadow: inset 0px 0px 0px 0px rgba(yellow, $alpha),
+        inset 0px 0px 0px 0px rgba(red, $alpha),
+        inset 0px 0px 0px 0px rgba(cyan, $alpha),
+        inset 0px 0px 0px 0px rgba(blue, $alpha),
+        0px 0px 0px 0px rgba(yellow, $alpha), 0px 0px 0px 0px rgba(red, $alpha),
+        0px 0px 0px 0px rgba(cyan, $alpha), 0px 0px 0px 0px rgba(blue, $alpha),
+        inset 0px 38px 0px 0px black, inset 0px 0px 0px 0px white,
+        inset 0px -38px 0px 0px black;
+
+      border-right-width: 1px;
+      border-left-width: 1px;
+      @include fakeRGBoff();
+      background: none;
+
+      &:hover {
+        $alpha: 1;
+        border: 1px rgba(white, 1) solid;
+        border-right-width: 2px;
+        border-left-width: 2px;
+        // border: none;
+        // color: black;
+        box-shadow: inset 1px 0px 0px 0px rgba(yellow, $alpha),
+          inset 2px 0px 0px 0px rgba(red, $alpha),
+          inset -1px 0px 0px 0px rgba(cyan, $alpha),
+          inset -2px 0px 0px 0px rgba(blue, $alpha),
+          1px 0px 0px 0px rgba(yellow, $alpha),
+          2px 0px 0px 0px rgba(red, $alpha), -1px 0px 0px 0px rgba(cyan, $alpha),
+          -2px 0px 0px 0px rgba(blue, $alpha), inset 0px 38px 0px 0px black,
+          inset 0px 0px 0px 0px white, inset 0px -38px 0px 0px black;
+
+        @include fakeRGBon(0px, 2px, 0.5px);
+      }
+
+      &.selected {
+        //border-width: 2px;
+        background: white;
+        color: black;
+
+        @-moz-document url-prefix() {
+          outline: 3px solid white;
+          outline-offset: -3px;
+        }
+
+        box-shadow: inset 0px 0px 0px 0px rgba(yellow, $alpha),
+          inset 0px 0px 0px 0px rgba(red, $alpha),
+          inset 0px 0px 0px 0px rgba(cyan, $alpha),
+          inset 0px 0px 0px 0px rgba(blue, $alpha),
+          2px 0px 0px 0px rgba(yellow, $alpha),
+          4px 0px 0px 0px rgba(red, $alpha), -2px 0px 0px 0px rgba(cyan, $alpha),
+          -4px 0px 0px 0px rgba(blue, $alpha), inset 0px 0px 0px 0px black,
+          inset 0px 38px 0px 0px white, inset 0px -38px 0px 0px black;
+        @include fakeRGBoff;
+      }
+    }
+  }
+
+  > .category-container > .language {
+    //background:blue;
+    display: inline-block;
+    padding: 5px;
+    //background: blue;
+
+    img {
+      display: inline-block;
+      height: 15px;
+    }
+    // margin-bottom: 20px;
+  }
+}
+
+.selected-projects {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+}
+
+#modal {
+  border: 0;
+  padding: 0px;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 32px 10px;
+  position: relative;
+
+  > .modal-inner {
+    max-width: 768px;
+    padding: 32px;
+    border: 0;
+    h1 {
+      font-size: 32px;
+      margin-top: 0px;
+      margin-bottom: 8px;
+    }
+    .project-img {
+      margin-bottom: 8px;
+      box-sizing: border-box;
+      container-type: inline-size;
+      max-height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+      }
+    }
+    .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      > a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        > img {
+          width: 20px;
+          height: auto;
+        }
+      }
+    }
+  }
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+}

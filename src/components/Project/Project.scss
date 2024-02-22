@@ -1,0 +1,82 @@
+.project-container {
+  border: solid rgba(white, 0.2) 1px;
+  //outline: solid 2px white;
+  transition: height 1s ease, outline-offset 0.5s, outline-color 0.5s,
+    box-shadow 0.5s;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px 0px rgba(white, 0.04),
+    inset 0px 0px 300px 0px rgba(white, 0.07);
+
+  overflow: hidden;
+  .img-container {
+    overflow: hidden;
+    container-type: inline-size;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 365px;
+    border-bottom: 1px solid rgba(white, 0.2);
+    // enable container sizing
+    // border-radius: 8px;
+
+    img {
+      box-sizing: border-box;
+      //   border-radius: 8px;
+      width: 100%;
+      height: auto;
+      //   max-height: 365px;
+      object-fit: contain;
+    }
+  }
+  > .project-contents {
+    padding: 30px;
+
+    .project-title {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      text-align: left;
+      font-family: var(--font-inter), sans-serif;
+      font-weight: 600;
+      line-height: normal;
+      padding: 0px;
+      margin: 0px;
+      margin-bottom: 12px;
+      > .links {
+        display: flex;
+        gap: 10px;
+        > a {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 16px;
+          line-height: normal;
+          font-weight: 400;
+          //   color: white;
+          img {
+            width: 20px;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    > .project-summary {
+      display: inline-block;
+      font-family: var(--font-open-sans), sans-serif;
+      font-weight: 200;
+      white-space: pre-wrap;
+    }
+  }
+}
+// .project-title-container {
+//   //   border-bottom: 2px solid white;
+//   //   border-radius: 4%;
+//   //   box-shadow: 0px 10px 10px -10px rgba(white, 0.5),
+//   //     inset 0px -10px 10px -10px rgba(white, 0.3);
+//   //   display: flex;
+//   //   justify-content: center;
+//   //   alifgn-items: center;
+//   //   padding: 5px 10px 5px 10px;
+
+// }

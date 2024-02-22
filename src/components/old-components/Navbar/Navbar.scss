@@ -1,0 +1,23 @@
+@import "@/style-modules/crazyShadow.scss";
+.navbar-container {
+  line-height: 1;
+  padding-top: 10px;
+  display: inline-flex;
+  width: 100%;
+  > .nav-link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-grow: 1;
+    text-align: center;
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    transition: text-shadow 1s;
+    @include noCrazyShadow(10, 0, 0);
+    &:hover {
+      @include crazyRainbowShadow(10, 7, 5);
+    }
+  }
+}

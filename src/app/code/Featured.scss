@@ -1,0 +1,47 @@
+.featured-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  max-width: 1024px;
+  margin: auto;
+  margin-bottom: 150px;
+
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+    &.flip {
+      flex-direction: row-reverse;
+    }
+    > .text {
+      display: flex;
+      max-width: 440px;
+      flex-direction: column;
+      //center
+      justify-content: center;
+      > h3 {
+        margin: unset;
+        line-height: unset;
+        font-size: 40px;
+      }
+    }
+    .spacer {
+      max-width: 80px;
+      height: 10px;
+      background: red;
+    }
+    img {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+}
