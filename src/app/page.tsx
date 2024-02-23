@@ -26,7 +26,7 @@ function Page() {
             <nav>
               <Link href="/code">Code</Link>
               <Link href="/music">Music</Link>
-              <a>Photos</a>
+              <a href="https://shane.cranor.org/photos">Photos</a>
             </nav>
           </div>
           <section className="about-me">

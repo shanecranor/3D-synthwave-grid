@@ -58,7 +58,7 @@ export default function Project({
           <div className="links">
             {data.links?.map((link) => (
               <a href={link.link} key={link.link}>
-                {link.img ? <img src={link.img} /> : link.description}{" "}
+                {link.img ? <img src={link.img} height="40px" width="40px" /> : link.description}{" "}
               </a>
             )) || ""}
           </div>

@@ -24,6 +24,8 @@ export function getLanguageIcons(languages: string[]) {
         <img
           src={`/assets/${languagesMap.get(lang)?.img}`}
           alt=""
+          width="20px"
+          height="20px"
           className="language-icon"
         />
         {lang}

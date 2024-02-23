@@ -270,7 +270,7 @@ export const projects: Project[] = [
     eventName: "CSCI306 Software Engineering",
     year: 2020,
     title: "Campus Themed Clue Game",
-    img: "https://shane.cranor.org/code/imgs/ClueGame.png",
+    img: "https://shane.cranor.org/old2/code/imgs/ClueGame.png",
     tags: ["Application"],
     languages: ["Java"],
     summary: "Recreating the Clue board game in Java",
@@ -301,7 +301,7 @@ export const projects: Project[] = [
         description: "Presentation",
       },
     ],
-    img: "https://shane.cranor.org/code/imgs/scifi.jpg",
+    img: "https://shane.cranor.org/old2/code/imgs/scifi.jpg",
     tags: ["Machine Learning"],
     languages: ["Python"],
     awards: [
