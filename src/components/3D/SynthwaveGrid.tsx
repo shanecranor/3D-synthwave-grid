@@ -39,12 +39,13 @@ export function SynthwaveGrid({
       const position = -halfSize + i * step;
       // Vertical lines
       linesArray.push(
-        <mesh key={`v-${i}`} position={[position, 0, 0]}>
+        <mesh key={`v-${i}`} position={[position, 0, 0]} >
           <boxGeometry args={[thickness, thickness, size]} />
           <meshBasicMaterial
             color={color}
             opacity={opacity}
-            // depthWrite={false}
+            side={THREE.DoubleSide}
+          // depthWrite={false}
           />
         </mesh>
       );
@@ -57,11 +58,12 @@ export function SynthwaveGrid({
         );
         linesArray.push(
           <mesh key={`h-${i}`} position={[0, 0, position]}>
-            <boxGeometry args={[size * 2, thickness * 1, thickness]} />
+            {/* <boxGeometry args={[size * 2, thickness * 1, thickness]} /> */}
+            <planeGeometry args={[size * 2, thickness * 1 * (1 + ((1 - (i * 1 / divisions)) * 2))]} />
             <meshBasicMaterial
               color={modifiedColor}
               opacity={opacity}
-              // depthTest={false}
+            // depthTest={false}
             />
           </mesh>
         );

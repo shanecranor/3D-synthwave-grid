@@ -23,8 +23,16 @@
   justify-content: center;
   align-items: center;
   .page-contents {
-    max-width: 700px;
+    max-width: 756px;
     margin: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 32px;
+    border-radius: 8px;
+    // background-blur
+    // backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.04),
+      inset 0px 0px 300px 0px rgba(0, 0, 0, 0.1);
   }
 }
 .landing-page {
@@ -36,6 +44,8 @@
   overflow: auto;
 
   > h1 {
+    transition: all 0.2s ease-in;
+    cursor: pointer;
     padding: unset;
     margin: unset;
     line-height: 11vw;
@@ -55,7 +65,7 @@
     color: White;
     z-index: 1;
     text-align: center;
-    /*text-shadow: 0px 0px 100px white;*/
+    // text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
     background-image: linear-gradient(
       blue 10%,
       white 50%,
@@ -71,6 +81,11 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
     paint-order: stroke fill;
+    &:hover {
+      // background-image: none;
+      // -webkit-text-fill-color: white;
+      text-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+    }
   }
   nav {
     all: unset;
@@ -103,9 +118,16 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100dvw;
+  height: 100dvh;
+  canvas {
+    width: 100dvw;
+    height: 100dvw;
+    //set scaling to pixel
+    image-rendering: pixelated;
+  }
   z-index: -1;
+  background: linear-gradient(90deg, rgb(61, 0, 61) 0%, rgb(0, 20, 48) 100%);
 }
 
 // Globals
@@ -121,11 +143,6 @@
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
   overflow: hidden; /* This prevents scrolling */
-  background: linear-gradient(90deg, rgb(61, 0, 61) 0%, rgb(0, 20, 48) 100%);
   z-index: -2;
 }

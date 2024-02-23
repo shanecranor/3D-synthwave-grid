@@ -1,5 +1,4 @@
-html,
-body {
+.p-code {
   font-family: var(--font-poppins), "Poppins", sans-serif;
   font-weight: 300;
   color: white;
@@ -10,10 +9,12 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  overflow: auto;
-}
-.p-code {
-  overflow: hidden;
   max-width: 1200px;
   margin: 0px auto;
+}
+.page-container {
+  width: 100%;
+  height: fit-content;
+  overflow-y: scroll;
+  max-height: 100%;
 }

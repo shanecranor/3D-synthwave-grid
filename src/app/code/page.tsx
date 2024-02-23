@@ -8,15 +8,17 @@ import "./page.scss";
 import { Featured } from "./Featured";
 const Page = () => {
   return (
-    <div className="p-code">
-      <Navbar />
-      <main>
-        <BigTitle text="Code Portfolio" />
-        <Featured />
-        <Section header="All Projects" startOpen={true}>
-          <LanguagesAndProjects />
-        </Section>
-      </main>
+    <div className="page-container">
+      <div className="p-code">
+        <Navbar />
+        <main>
+          <BigTitle text="Code Portfolio" />
+          <Featured />
+          <Section header="All Projects" startOpen={true}>
+            <LanguagesAndProjects />
+          </Section>
+        </main>
+      </div>
     </div>
   );
 };

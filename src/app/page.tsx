@@ -4,9 +4,6 @@ import { useState } from "react";
 import "./page.scss";
 import { ThreeJsCanvas } from "./ThreeJsCanvas";
 import Link from "next/link";
-import dynamic, { Loader, LoaderComponent } from "next/dynamic";
-import { ComponentType } from "react";
-// import ThreeJsCanvas from "./ThreeJsCanvas";
 
 function Page() {
   const [tile, setTile] = useState(0);
@@ -51,6 +48,9 @@ function Page() {
                 workers/pages, I love to cook, mess with electronics, and make
                 music. I played collegiate Valorant (e-sports) in college and I
                 enjoy gaming occasionally.
+              </p>
+              <p>
+                I built this site using React Three Fiber and NextJS.
               </p>
               <button
                 onClick={() => {

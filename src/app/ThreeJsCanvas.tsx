@@ -16,6 +16,7 @@ import {
   Cloud,
   Clouds,
   GradientTexture,
+  Loader,
   Stars,
   // Stats,
 } from "@react-three/drei";
@@ -59,8 +60,9 @@ export const ThreeJsCanvas = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return (
-    <Canvas dpr={1} suppressHydrationWarning>
+  return (<>
+    <Canvas dpr={[0.5, 1]} suppressHydrationWarning>
+
       {/* <Stats /> */}
       <SetCameraPosition />
       <Background windowDimensions={windowDimensions} />
@@ -193,5 +195,7 @@ export const ThreeJsCanvas = () => {
         position={[0, -1.2, -80]}
       />
     </Canvas>
+    <Loader />
+  </>
   );
 };
