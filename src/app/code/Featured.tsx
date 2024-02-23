@@ -23,7 +23,9 @@ export const Featured = () => {
             }
           />
         </div>
-        <img src={spinWheelImg.src} alt="Spin the Wheel" />
+        {/* <img src={spinWheelImg.src} alt="Spin the Wheel" />
+         */}
+        <div className="iframe-container"><iframe src="https://serverless-less.wheel-spin.pages.dev/" width="500px" height="650px" title="Spin the Wheel" /></div>
       </article>
       <article className="flip">
         <div className="text">

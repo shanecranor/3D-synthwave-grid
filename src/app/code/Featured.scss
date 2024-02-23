@@ -28,20 +28,28 @@
       flex-direction: column;
       //center
       justify-content: center;
+
       > h3 {
         margin: unset;
         line-height: unset;
         font-size: 40px;
       }
     }
-    .spacer {
-      max-width: 80px;
-      height: 10px;
-      background: red;
-    }
     img {
       max-width: 500px;
       width: 100%;
+    }
+    .iframe-container {
+      max-width: 500px;
+      width: 100%;
+      // overflow: hidden;
+      iframe {
+        all: unset;
+        width: 500px;
+        height: 650px;
+        // // transform: scale(0.75);
+        // transform-origin: top center;
+      }
     }
   }
 }
